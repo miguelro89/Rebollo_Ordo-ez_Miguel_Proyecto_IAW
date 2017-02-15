@@ -71,7 +71,7 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">ELECTRIK MUSIK</span>
+                        <span class="name">ELECTRIK EDM</span>
                         <hr class="star-light">
                         <span class="skills">Tu web de música electronica, don't stop</span>
                     </div>
@@ -81,93 +81,14 @@
     </header>
 
     <!-- Portfolio Grid Section -->
-    <section id="generos">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Generos</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="/canciones/reg_trap.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://masterperiodismoces.com/wordpress/wp-content/uploads/2016/02/trap.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                      <a href="/canciones/reg_techno.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://www.radiorsk.info/wp-content/uploads/1970/03/techno-950x790.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                      <a href="/canciones/reg_edm.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://www.radiomushroom.fm/wp-content/uploads/2016/03/EDM_imagen.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                      <a href="/canciones/reg_dnb.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://kingofwallpapers.com/dnb/dnb-006.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Peticion de canciones</h2>
+                    <h2>Panel del administrador</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -178,14 +99,37 @@
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Nombre</label>
+                                <label>Borrar Usuario</label>
                                 <input type="text" class="form-control" placeholder="nombre" id="nombre" required data-validation-required-message="Introduce tu nombre.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+                        <?php
+                        $campos=$_GET['id'];
+
+                            $connection = new mysqli("localhost", "miguel", "", "proyectophp");
+                                if ($connection->connect_errno) {
+                                  printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+}
+
+                        $selec_codusu="select * from usuarios where cod_usuario=$campos;";
+                        $borrar_usuario="delete from usuarios where IdReparacion=$campos;";
+
+                        $resultado2=$connection->query($selec_codusu)  or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$select_codusu);
+                        $resultado=$connection->query($borrar_usuario) or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$borrar_usuario);
+
+
+                        echo "<form method='get' action='../logueo/index.php'>
+                        <input type='submit' value='Volver'/>
+                        </form>";
+                        ?>
+
+
+                         ?>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Correo electrónico</label>
+                                <label>Editar Usuario </label>
                                 <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Introduce mail.">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -213,31 +157,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
