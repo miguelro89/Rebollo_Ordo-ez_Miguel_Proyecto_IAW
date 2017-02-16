@@ -64,7 +64,7 @@ insert into canciones values (null, 'trauma(worakls_remix)', 'n_to', 2012, 'tech
 
 insert into canciones values (null, 'goldfish','kolsch', 2013, 'techno', 'https://www.youtube.com/watch?v=S1vbiTZq0DY', null);
 
-insert into canciones values (null, 'smoke_techno', 'corner', 2017, null, 'https://www.youtube.com/watch?v=CbDpyR4g9UM', null);
+insert into canciones values (null, 'smoke_techno', 'corner', 2017, 'techno', 'https://www.youtube.com/watch?v=CbDpyR4g9UM', null);
 
 
 /*DnB*/
