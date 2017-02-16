@@ -121,7 +121,6 @@
 
 
                           while ($fila=mysqli_fetch_array($result)) {
-                            echo"<table class= 'table table-bordered'>";
                             echo "<tr>";
                               echo "<td>".$fila['id_cancion']."</td>";
                               echo "<td>".$fila['nombre_cancion']."</td>";
@@ -131,7 +130,6 @@
                               echo "<td>".$fila['enlace_youtube']."</td>";
                               echo "<td>".$fila['puesto']."</td>";
                             echo "</tr>";
-                            echo "</table>";
                           }
 
 

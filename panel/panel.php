@@ -114,7 +114,7 @@
 }
 
                         $selec_codusu="select * from usuarios where cod_usuario=$campos;";
-                        $borrar_usuario="delete from usuarios where IdReparacion=$campos;";
+                        $borrar_usuario="delete from usuarios where cod_usuario=$campos;";
 
                         $resultado2=$connection->query($selec_codusu)  or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$select_codusu);
                         $resultado=$connection->query($borrar_usuario) or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$borrar_usuario);
@@ -125,8 +125,29 @@
                         </form>";
                         ?>
 
+                        <?php
+                        $campos=$_GET['id'];
 
-                         ?>
+                            $connection = new mysqli("localhost", "miguel", "", "proyectophp");
+                                if ($connection->connect_errno) {
+                                  printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+}
+
+                        $selec_codusu="select * from usuarios where cod_usuario=$campos;";
+                        $actualizar_usuario="update set usuarios where cod_usuario=$campos;";
+
+                        $resultado2=$connection->query($selec_codusu)  or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$select_codusu);
+                        $resultado=$connection->query($actualizar_usuario) or die('La consulta fall&ocute;: '.mysql_error($connection)." ".$actualizar_usuario);
+
+
+                        echo "<form method='get' action='../logueo/index.php'>
+                        <input type='submit' value='Volver'/>
+                        </form>";
+                        ?>
+
+
+
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Editar Usuario </label>

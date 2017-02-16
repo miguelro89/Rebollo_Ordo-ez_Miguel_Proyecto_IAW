@@ -1,5 +1,10 @@
 <?php
   session_start();
+
+  if ($_SESSION["rol"]!='Administrador'){
+       session_destroy();
+     header("Location:../");
+  }
 ?>
 
 
@@ -56,9 +61,12 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="../panel/panel.php">Panel de Admin</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="../logueo/logout.php">Cerrar sesion</a>
                     </li>
-                    
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
