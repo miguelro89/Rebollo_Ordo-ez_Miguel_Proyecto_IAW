@@ -83,7 +83,7 @@
                         <span class="name">Eliminar un usuario</span>
                         <hr class="star-light">
                         <span class="skills">
-                            <a href="drop_user/drop.php">
+                            <a href="drop_user/view_user.php">eliminar
                             </a>
                         </span>
                     </div>

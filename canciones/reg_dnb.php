@@ -127,7 +127,7 @@
                               echo "<td>".$fila['autores']."</td>";
                               echo "<td>".$fila['ao_publicacion']."</td>";
                               echo "<td>".$fila['id_genero']."</td>";
-                              echo "<td>".$fila['enlace_youtube']."</td>";
+                              echo "<td><a href='.$fila['enlace_youtube'].'>""</td>";
                               echo "<td>".$fila['puesto']."</td>";
                             echo "</tr>";
                           }

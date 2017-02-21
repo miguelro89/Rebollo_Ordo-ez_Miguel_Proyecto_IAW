@@ -22,7 +22,7 @@
   if (isset($_GET["id"])) {
 
     //CREATING THE CONNECTION
-    $connection = new mysqli("localhost", "miguel", "", "megaproyectophp");
+    $connection = new mysqli("localhost", "miguel", "", "proyectophp");
 
     //TESTING IF THE CONNECTION WAS RIGHT
     if ($connection->connect_errno) {
