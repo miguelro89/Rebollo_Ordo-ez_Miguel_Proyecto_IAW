@@ -12,10 +12,10 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="estilo/css/freelancer.min.css" rel="stylesheet">
+    <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +42,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a href="../index.html">Volver a inicio</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,7 +70,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">ELECTRIK MUSIK</span>
                         <hr class="star-light">
@@ -255,20 +255,20 @@
     </div>
     
     <!-- jQuery -->
-    <script src="estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="estilo/js/jqBootstrapValidation.js"></script>
-    <script src="estilo/js/contact_me.js"></script>
+    <script src="../estilo/js/jqBootstrapValidation.js"></script>
+    <script src="../estilo/js/contact_me.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="estilo/js/freelancer.min.js"></script>
+    <script src="../estilo/js/freelancer.min.js"></script>
 
 </body>
 

@@ -100,13 +100,13 @@
                 </div>
                 <table border="1" class= 'table table-bordered'>
                   <tr>
-                      <td>id cancion</td>
-                      <td>nombre cancion</td>
-                      <td>autor/es</td>
-                      <td>Año publicacion</td>
-                      <td>id genero</td>
-                      <td>enlace</td>
-                      <td>puesto</td>
+                      <td><b>id cancion</b></td>
+                      <td><b>nombre cancion</b></td>
+                      <td><b>autor/es</b></td>
+                      <td><b>Año publicacion</b></td>
+                      <td><b>id genero</b></td>
+                      <td><b>enlace</b></td>
+                      <td><b>puesto</b></td>
                   </tr>
 
                   <?php

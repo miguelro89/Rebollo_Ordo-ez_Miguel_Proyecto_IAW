@@ -12,10 +12,10 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="estilo/css/freelancer.min.css" rel="stylesheet">
+    <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +42,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a href="../index.html">Volver a inicio</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,10 +52,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="logueo/index.html">Iniciar sesion</a>
+                        <a href="../usuario/panelusu.php">Panel de usuario</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="registro/index.php">registrarse</a>
+                        <a href="../logueo/logout.php">Cerrar Sesion</a>
                     </li>
 
                 </ul>
@@ -70,53 +71,70 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-text">
-                        <span class="name">ELECTRIK MUSIK</span>
+                        <span class="name">NOTICIAS</span>
                         <hr class="star-light">
-                        <span class="skills">Tu web de música electronica, don't stop</span>
+                        <span class="skills">Tu información sobre tu musica favorita</span>
                     </div>
 					<br></br>
 					
             </div>
         </div>
     </header>
-
-
+    
 
     <!-- Portfolio Grid Section -->
-    <section id="contact">
-          <div class="row">
-                <div class="col-lg-12 text-center">
-					<img src="https://i.ytimg.com/vi/voHn3IeLPk8/maxresdefault.jpg" width="750px" height="500px">
-					</img>
-                    <hr class="star-primary">
-                </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <hr class="star-light">
+                        <span class="skills">Dreambeach 2017</span>
+					<br></br>
+                    <span class="skills">DreamBeach Villaricos sorprende con el mayor y más espectacular avance de su historia como punto de partida para su 5º aniversario. 20 artistas, 20 Top para Dreambeach. El festival apuesta por la alta calidad y la variedad en los diferentes estilos electrónicos.
+
+                    ANDY C – ANGERFIST – ANNA – BORGORE – CHASE & STATUS (Dj Set & Rage) – FERRY CORSTEN – GONÇALO – JULIAN JEWEIL – NERVO – MAYA JANE COLES – MARCO CAROLA – MARSHMELLO – MATADOR (Live) – MOLLIE COLLINS – NETSKY (Dj) – NICKY ROMERO – OLIVER HELDENS – PACO OSUNA – POPOF – RADICAL REDEMPTION – TCHA-MI – QUINTINO – WILKINSON (Live) – W&W
+                    <br></br>
+
+                    Dreambeach Villaricos es uno de los pocos festivales que se puede permitir el lujo de vender 12000 abonos nada más salir y sin anunciar ningún artista pero está claro que los “dreamers” no quieren esperar demasiado y se merecen que el primer plato sea de lo más gustoso en este 5º Aniversario. Por eso Dreambeach cumple sus deseos y lanza el primer avance con más artistas de su historia, en número, en calidad y en diversidad de estilos.
+                    <br></br>
+
+                    Son los 20 artistas internacionales y nacionales que componen este primer avance donde se acogen todos los estilos de música electrónica desde drum&bass, techno, house y future house, dubstep, trance, minimal, dance, etc.
+                    <br></br>
+
+                    Otra de las novedades de este 5º Aniversario será una espectacular producción escenográfica temática no solo en los escenarios si no en un recinto que será transformado en un auténtico paraíso para disfrute y recreo de los “dreamers”. Una temática que la organización desvelará muy pronto.</span>
+                    
+            <br></br>        
+            <div class="container">Más información en:
+                    <a href="http://www.dreambeach.es/2017/">Página oficial</a>                   
             </div>
+
+            <br></br>
+            <span class="skills">Winter Festival 2017</span>
+					<br></br>
+                    <span class="skills">Nuevo año, nuevos retos, nuevas metas.... y con el nuevo año llega también Raveart!!! Vuelve el festival invernal con la mejor música electrónica que cada año te trae lo mas destacado del sonido breaks nacional e internacional, una cita que este año vuelve a SEVILLA, la provincia que lo vio nacer, a un lugar privilegiado que se convirtió en icono de la música más vanguardista en el que se dieron conocer muchos pesos pesados de la escena electrónica en Andalucía en los años 90. Se trata del antiguo complejo “Sevilla Mía”, en la actualidad reconvertido en un espacio para celebraciones y eventos con el nombre de COMPLEJO OASIS, un espacio que fue un gran icono de la música electrónica en Andalucía y que volverá a serlo muchos años después de que se vivieran aquellos grandes momentos. Para tan importante cita, hemos preparado un gran line up con los mejores artistas actuales tanto nacionales como internacionales, así como de las nuevas promesas, muchas de ellas ya consolidadas que no pueden faltar en la cita más vanguardista del Break en Andalucía, el Retro también tendrá cabida en un escenario para los amantes de los sonidos y emociones de hace años. El SÁBADO 18 DE MARZO es la fecha en la que “Sevilla Mía” volverá a rugir de nuevo...</span>
+    
+            <br></br>       
+            <div class="container">Más información en:
+                    <a href="https://www.ticketea.com/entradas-festival-winter-2017/">Info + entradas</a>                   
+            </div>
+            <br></br>
+    
+            <span class="skills">Noticias sobre DJ's/Productores</span>
+					<br></br>
+                    <span class="skills">En la siguiente página encontrarás toda la informacion sobre tus djs y productores preferidos y algunos desconocidos, los cuales podrás sorprenderte, interesantes noticias y eventos siempre enfocados al género de ésta página, no tiene ningún desperdicio.</span>
+
+            <br></br>       
+            <div class="container">Más información en:
+                    <a href="http://www.beatmashmagazine.com/">Beatmash magazine</a>                   
+            </div>
+            <br></br>
+            </div>
+            </div>
+        </div>
     <!-- Contact Section -->
     
     <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer class="text-center">
@@ -416,3 +434,4 @@
 </body>
 
 </html>
+
