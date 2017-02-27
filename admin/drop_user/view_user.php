@@ -12,11 +12,11 @@
     <title>Borrar usuario</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../estilos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../estilos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../../estilos/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../estilos/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
@@ -74,21 +74,66 @@
                 <h2 id="homeHeading">Borrar usuario</h2>
                 <hr>
                 <?php
-                $connection = new mysqli("localhost", "miguel", "", "proyectophp"); // Me conecto a la base de datos
-                if ($connection->connect_errno) { // compruebo que no hay errores
-                    printf("Connection failed: %s\n", $connection->connect_error);
-                    exit();
-                }
-                // Hago que el GET sea un ID
-                foreach ($_GET as $key => $id_usuario)
-                      if ($result2 = $connection->query("delete * from usuarios where =$id_usuario;")) {
-                          echo "El usuario $id_usuario ha sido eliminado.<br>";
-                          echo "<br/><br/><br/>";
-                          echo "<br/><a href='../'><h3 id='homeHeading'>Volver al menu</h3>";
-                        } else {
-                            mysqli_error($connection);
-                      }                 
+
+                    session_start();
+
+                    if($_SESSION["rol"] != "admin") {
+
+                    header ("Location: ../../index.php");
+                    }
+                    //Si el rol "NO" es admin redirigir a index.php
+                
                 ?>
+
+                <table border="1">
+                    <tr>
+                     <th>cod_usuario</th>
+                     <th>nombre</th>
+                     <th>apellidos</th>
+                     <th>correo_electronico</th>
+                    </tr>
+
+                <?php
+
+
+
+                $connection = new mysqli("localhost", "miguel", "", "proyectophp");
+                //Conexion a la base de datos (localhost, usuario, contraseña, bd).
+
+                 if ($connection->connect_errno) {
+                     printf("Connection failed: %s\n", $connection->connect_error);
+                     exit();
+                 }
+
+                //Para eliminar
+                if ($result = $connection->query("SELECT * FROM usuarios;")) {
+                } else {
+                // Si no hace la consulta es error, por lo que muestro el error
+                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                }
+                // mostramos todos los datos de nuesyro usuarios
+                    // y esa informacion la almacenamos en result
+                while($obj = $result->fetch_object()) {
+                    echo "<tr>";
+                        echo "<td>".$obj->cod_usuario."</td>";
+                        echo "<td>".$obj->nombre."</td>";
+                        echo "<td>".$obj->apellidos."</td>";
+                        echo "<td>".$obj->correo_electronico."</td>";              
+                        echo "<td><form id='form0' method='get'>
+                          <a href='rem_user.php?id=$obj->cod_usuario'>
+                            <img src='../../imgs/borrar.jpeg' width='30%';/>
+                          </a>
+                        </form></td>";
+                    echo "</tr>";
+          }
+          
+          $result->close(); // Cierramos la consulta
+          unset($obj);
+          unset($connection); // Cierramos la conexión
+          ?>
+                  
+                
+                </table> 
                 
                 </div>
         </div>
@@ -104,8 +149,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="../../estilos/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="../../estilos/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/estilos/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/estilos/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../../estilos/js/creative.min.js"></script>

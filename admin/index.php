@@ -52,7 +52,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                <a href="../index.html">Volver a inicio</a>
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,8 +82,8 @@
                 <div class="col-lg-12">
                     <div class="intro-text">
                         <span class="name">ELECTRIK EDM</span>
-                        <hr class="star-light">
-                        <span class="skills">Tu web de música electronica, don't stop</span>
+                        <br></br>
+                        <img src="https://pbs.twimg.com/profile_images/1106797177/eq-equalizer-sound-frequencies.jpg" width="650px" height="350px"></img>
                     </div>
                 </div>
             </div>

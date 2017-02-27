@@ -52,6 +52,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,35 +81,39 @@
                 <div class="col-lg-12">
               <!--  <img class="img-responsive" src="img/profile.png" alt=""> -->
                     <div class="intro-text">
-                        <span class="name">Eliminar un usuario</span>
+                        <a href="drop_user/view_user.php">
+                            <span class="name" id="blanco">Eliminar un usuario</span>
+                        </a>
                         <hr class="star-light">
                         <span class="skills">
-                            <a href="drop_user/view_user.php">eliminar
-                            </a>
                         </span>
                     </div>
                     <div class="intro-text">
-                        <span class="name">Modificar un usuario</span>
+                        <a href="edit_user/edit.php">
+                            <span class="name" id="blanco">Modificar un usuario</span>
+                        </a>
                         <hr class="star-light">
                         <span class="skills">
-                            <a href="edit_user/edit.php">
-                            </a>
+                            
+                        
                         </span>
                     </div>
                     <div class="intro-text">
-                        <span class="name">Crear un usuario</span>
+                        <a href="add_user/add.php">
+                            <span class="name" id="blanco">Crear un usuario</span>
+                        </a>
                         <hr class="star-light">
-                        <span class="skills">
-                            <a href="add_user/add.php">
-                            </a>
+                        <span class="skills">                           
+                            
                         </span>
                     </div>
                     <div class="intro-text">
-                        <span class="name">Modificar una cancion</span>
+                        <a href="edit_canc/edit_can.php">
+                            <span class="name" id="blanco">Modificar una cancion</span>
+                        </a>
                         <hr class="star-light">
-                        <span class="skills">
-                            <a href="edit_canc/edit_can.php">
-                            </a>
+                        <span class="skills">                            
+                        
                         </span>
                     </div>
                 </div>
