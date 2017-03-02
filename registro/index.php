@@ -135,7 +135,7 @@
           echo "<br/><br/><br/><br/><br/><br/>";
           echo "<h3 id='homeHeading'>Tus datos han sido añadidos correctamente en nuestra comunidad</h3>";
           echo "<br/><br/>";
-          echo "<a href='../index.html'><h4 id='homeHeading'>Volver al inicio</h4></a>";
+          echo "<a href='../index.html'><h4 id='homeHeading'>POR FAVOR INICIA SESION</h4></a>";
           echo "<br/><br/>";
 
           }
