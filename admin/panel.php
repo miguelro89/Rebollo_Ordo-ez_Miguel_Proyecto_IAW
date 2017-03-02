@@ -89,7 +89,7 @@
                         </span>
                     </div>
                     <div class="intro-text">
-                        <a href="edit_user/edit.php">
+                        <a href="edit_user/view_edit.php">
                             <span class="name" id="blanco">Modificar un usuario</span>
                         </a>
                         <hr class="star-light">
@@ -99,7 +99,7 @@
                         </span>
                     </div>
                     <div class="intro-text">
-                        <a href="add_user/add.php">
+                        <a href="add_user/view_add.php">
                             <span class="name" id="blanco">Crear un usuario</span>
                         </a>
                         <hr class="star-light">

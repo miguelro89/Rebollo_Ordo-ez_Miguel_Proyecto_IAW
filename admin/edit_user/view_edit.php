@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Borrar usuario</title>
+    <title>Editar usuario</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -120,8 +120,8 @@
                         echo "<td>".$obj->apellidos."</td>";
                         echo "<td>".$obj->correo_electronico."</td>";              
                         echo "<td><form id='form0' method='get'>
-                          <a href='drop.php?id=$obj->cod_usuario'>
-                            <img src='../../imgs/borrar.jpeg' width='30%';/>
+                          <a href='edit.php?id=$obj->cod_usuario'>
+                            <img src='../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";
@@ -138,6 +138,7 @@
                 </div>
         </div>
     </header>   
+
    
 
     <!-- jQuery -->
@@ -148,8 +149,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../../estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../../estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../../estilo/js/creative.min.js"></script>

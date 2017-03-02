@@ -106,7 +106,6 @@
                       <td><b>Año publicacion</b></td>
                       <td><b>id genero</b></td>
                       <td><b>enlace</b></td>
-                      <td><b>puesto</b></td>
                   </tr>
 
                   <?php
@@ -128,7 +127,6 @@
                         echo "<td>".$fila['ao_publicacion']."</td>";
                         echo "<td>".$fila['id_genero']."</td>";
                         echo "<td>".$fila['enlace_youtube']."</td>";
-                        echo "<td>".$fila['puesto']."</td>";
                       echo "</tr>";
                     }
 

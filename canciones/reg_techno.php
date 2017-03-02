@@ -73,7 +73,7 @@
                   <div class="col-lg-12">
                       <img class="img-responsive" src="img/profile.png" alt="">
                       <div class="intro-text">
-                          <span class="name">ELECTRIK EDM</span>
+                          <span class="name">ELECTRIK MUSIK</span>
                           <hr class="star-light">
                           <span class="skills">Tu web de música electronica, don't stop</span>
                       </div>
@@ -107,7 +107,6 @@
                         <td><b>Año publicacion</b></td>
                         <td><b>id genero</b></td>
                         <td><b>enlace</b></td>
-                        <td><b>puesto</b></td>
                     </tr>
 
                     <?php
@@ -129,7 +128,6 @@
                           echo "<td>".$fila['ao_publicacion']."</td>";
                           echo "<td>".$fila['id_genero']."</td>";
                           echo "<td>".$fila['enlace_youtube']."</td>";
-                          echo "<td>".$fila['puesto']."</td>";
                         echo "</tr>";
                       }
 
