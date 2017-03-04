@@ -108,7 +108,7 @@
                         </span>
                     </div>
                     <div class="intro-text">
-                        <a href="edit_canc/edit_can.php">
+                        <a href="edit_canc/edit_canc.php">
                             <span class="name" id="blanco">Modificar una cancion</span>
                         </a>
                         <hr class="star-light">

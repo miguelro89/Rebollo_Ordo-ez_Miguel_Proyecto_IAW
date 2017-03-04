@@ -87,8 +87,7 @@
 
             //para que el admin pueda crear un usuario
 
-            if (!isset($_POST["nombre"])) : ?>
-                    <form method="post">
+            if (!isset($_POST["id"])) : ?>                   
                         <?php
                         //CREATING THE CONNECTION
                         $connection = new mysqli("localhost", "root", "", "proyectophp");
@@ -99,7 +98,7 @@
                         }
 
                         ?>
-
+                    <form method="post">
 
                         <br>
                             <span>Nombre: </span><input type="text" name="nombre"><br/><br/>

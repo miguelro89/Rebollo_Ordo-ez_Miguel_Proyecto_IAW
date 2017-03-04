@@ -109,20 +109,20 @@
                 <?php else: ?>
                 <?php
 
-                        $consulta= "UPDATE SET usuarios WHERE id=$id";
+                        $consulta=$connection->query ("update usuarios set nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', email='".$_POST["pemail"]."', pass='".$_POST["pass"]."', where cod_usuario=".$_POST['nombre'].";");
 
                         $result = $connection->query($consulta);
                         if (!$result) {
 
                             echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                            echo "<h2 id='homeHeading'>Error en la modificación de los datos</h2>";
                             echo "<br/><br/><br/>";
 
 
                        } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
+                       echo "<h3 id='homeHeading'>Los datos han sido modificados correctamente</h3>";
                        echo "<br/><br/>";
          
                        }
