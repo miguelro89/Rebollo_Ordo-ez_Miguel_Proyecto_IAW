@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar usuario</title>
+    <title>Modificar cancion</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,23 +37,40 @@
     //CREATING THE CONNECTION
     $connection = new mysqli("localhost", "root", "", "proyectophp");
 
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-    }
+    //TESTING THE CONECTION
+    ?>
+        <form method="post">
+             <?php
+             //CREATING THE CONNECTION
+             $connection = new mysqli("localhost", "root", "", "proyectophp");
+             //TESTING IF THE CONNECTION WAS RIGHT
+             if ($connection->connect_errno) {
+                 printf("Connection failed: %s\n", $connection->connect_error);
+                 exit();
+             }
+            ?>
+            
+             <br>
+                 <span>Nombre_cancion: </span><input type="text" name="nombre"><br/><br/>
+                 <span>Autores: </span><input type="text" name="apellido"><br/><br/>
+                 <span>Año_publicacion: </span><input type="email" name="email"><br/><br/>
+                 <span>Id_genero: </span><input type="password" name="pass"><br/><br/>
+                 <span>Enlace_youtube: </span><input type="text" name="enlace"><br/><br/>       
+                 <input class="btn btn-primary btn-xl page-scroll" name="Submit" valutype="submit" >
+                    </form>
+    <?php
     echo $id;
       
     //BUILDING THE DELETE  QUERY
-    $borrar = $connection->query("update usuarios set nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', email='".$_POST["email"]."', pass='".$_POST["pass"]."', where cod_usuario=$id");
+    $borrar = $connection->query("update canciones set nombre_cancion='".$_POST["nombre_cancion"]."',  autores='".$_POST["autores"]."', ao_publicacion='".$_POST["ao_publicacion"]."', id_genero='".$_POST["id_genero"]."',enlace_youtube='".$_POST["enlace_youtube"]."' where id_cancion=$id");
 
 
         //No rows returned
         if ($borrar->rows===0) {
-          echo "No se ha modificado ningun usuario";
+          echo "No se ha modificado ninguna cancion";
         } else {
 
-          echo "El usuario se ha modificado correctamente";
+          echo "La cancion se ha modificado correctamente";
         }
 
   } else {
@@ -81,5 +98,3 @@
 </body>
 
 </html>
-        
-   

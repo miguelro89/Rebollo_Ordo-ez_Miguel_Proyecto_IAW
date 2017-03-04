@@ -122,7 +122,7 @@
                         echo "<td>".$obj->id_genero."</td>";  
                         echo "<td>".$obj->enlace_youtube."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='edit_can.php?id=$obj->id_cancion'>
+                          <a href='edi_can.php?id=$obj->id_cancion'>
                             <img src='../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";

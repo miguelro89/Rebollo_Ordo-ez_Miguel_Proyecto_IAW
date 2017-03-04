@@ -56,6 +56,9 @@
                               <a href="#page-top"></a>
                           </li>
                           <li class="page-scroll">
+                              <a href="../usuario/index.html">Volver</a>
+                          </li>
+                          <li class="page-scroll">
                               <a href="../logueo/logout.php">Cerrar sesion</a>
                           </li>
                       </ul>
@@ -126,7 +129,7 @@
                               echo "<td>".$fila['autores']."</td>";
                               echo "<td>".$fila['ao_publicacion']."</td>";
                               echo "<td>".$fila['id_genero']."</td>";
-                              echo "<td>""<a href=enlace_youtube>""</td>";
+                              echo "<td>".$fila['enlace_youtube']."</td>";
                             echo "</tr>";
                           }
 
