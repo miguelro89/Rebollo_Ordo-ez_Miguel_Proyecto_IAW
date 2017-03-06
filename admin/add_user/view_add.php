@@ -77,12 +77,17 @@
                 <?php
 
                     session_start();
-
-                    if($_SESSION["rol"] != "admin") {
-
-                    header ("Location: ../../index.php");
+                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
+                    if ($_SESSION["rol"]!='admin'){
+                            session_destroy();
+                            header("Location:../");
                     }else{
-                      $connection = new mysqli("localhost", "root", "", "proyectophp");  
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 
@@ -90,16 +95,7 @@
             //para que el admin pueda crear un usuario
 
             if (!isset($_POST["nombre"])) : ?>                   
-                        <?php
-                        //CREATING THE CONNECTION
-                        
-                        //TESTING IF THE CONNECTION WAS RIGHT
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
 
-                        ?>
                     <form method="post">
 
                         <br>
@@ -127,7 +123,8 @@
                        echo "<br/><br/><br/><br/><br/><br/>";
                        echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
                        echo "<br/><br/>";
-         
+                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
+                       echo "<br/><br/>";
                        }
     
                     ?>

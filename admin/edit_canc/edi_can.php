@@ -23,7 +23,7 @@
 
   //Open the session
   session_start();
-
+    //si la conexion es distinta a la de admin te edirige a la pagina principal y si no crea la conexion
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");

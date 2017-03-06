@@ -23,25 +23,22 @@
 
   //Open the session
   session_start();
-
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
-  }
+    }else{
+        $connection = new mysqli("localhost", "root", "", "proyectophp");
+        //TESTING IF THE CONNECTION WAS RIGHT
+        if ($connection->connect_errno) {
+            printf("Connection failed: %s\n", $connection->connect_error);
+            exit();
+        }
+    }
 
   //Already logged
   if (isset($_GET["id"])) {
 
     $id=$_GET["id"];  
-    
-    //CREATING THE CONNECTION
-    $connection = new mysqli("localhost", "root", "", "proyectophp");
-
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-    }
     echo $id;
       
     //BUILDING THE DELETE  QUERY
