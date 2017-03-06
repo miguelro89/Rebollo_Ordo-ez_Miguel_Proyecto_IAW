@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar usuario</title>
+    <title>Mostrar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

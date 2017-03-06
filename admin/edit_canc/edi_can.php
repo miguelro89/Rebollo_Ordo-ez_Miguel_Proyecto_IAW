@@ -35,7 +35,6 @@
             exit();
         }
     }
-    //CREATING THE CONNECTION
 
     //TESTING THE CONECTION
     ?>
@@ -70,7 +69,7 @@
  <?php endif ?>
  
 <br></br>
-    <a href="../panel.php">Volver</a>
+    <a href="../edit_canc/edit_canc.php">Volver</a>
     <br></br>
     <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
