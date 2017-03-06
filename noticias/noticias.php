@@ -42,7 +42,6 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                <a href="../usuario/index.html">Volver a inicio</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,7 +51,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="../usuario/panelusu.php">Panel de usuario</a>
+                        <a href="../usuario/index.html">Volver</a>
                     </li>
                     <li class="page-scroll">
                         <a href="../logueo/logout.php">Cerrar Sesion</a>

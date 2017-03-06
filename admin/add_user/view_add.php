@@ -81,16 +81,18 @@
                     if($_SESSION["rol"] != "admin") {
 
                     header ("Location: ../../index.php");
+                    }else{
+                      $connection = new mysqli("localhost", "root", "", "proyectophp");  
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 
 
             //para que el admin pueda crear un usuario
 
-            if (!isset($_POST["id"])) : ?>                   
+            if (!isset($_POST["nombre"])) : ?>                   
                         <?php
                         //CREATING THE CONNECTION
-                        $connection = new mysqli("localhost", "root", "", "proyectophp");
+                        
                         //TESTING IF THE CONNECTION WAS RIGHT
                         if ($connection->connect_errno) {
                             printf("Connection failed: %s\n", $connection->connect_error);
@@ -109,12 +111,11 @@
                     </form>
 
                 <?php else: ?>
-                <?php
-
-                        $consulta= "INSERT INTO usuarios            VALUES(".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."','".$_POST['pass']."',)";
-
-                        $result = $connection->query($consulta);
-                        if (!$result) {
+                <?php 
+                $consulta= "INSERT INTO usuarios            VALUES(NULL,'".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."','".$_POST['pass']."','usuario')";
+                    $result = $connection->query($consulta);
+                        
+                    if (!$result) {
 
                             echo "<br/><br/><br/><br/><br/><br/>";
                             echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
@@ -129,9 +130,9 @@
          
                        }
     
-
-                        endif
-                        ?>
+                    ?>
+                <?php endif ?>
+                
                 
             </div>
         </div>

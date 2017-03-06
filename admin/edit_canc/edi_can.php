@@ -17,9 +17,9 @@
 
     <!-- Custom Fonts -->
     <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-<?php
+</head>
+<body>
+  <?php
 
   //Open the session
   session_start();
@@ -27,57 +27,48 @@
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
-  }
-
-  //Already logged
-  if (isset($_GET["id"])) {
-
-    $id=$_GET["id"];  
-    
+    }else{
+        $connection = new mysqli("localhost", "root", "", "proyectophp");
+        //TESTING IF THE CONNECTION WAS RIGHT
+        if ($connection->connect_errno) {
+            printf("Connection failed: %s\n", $connection->connect_error);
+            exit();
+        }
+    }
     //CREATING THE CONNECTION
-    $connection = new mysqli("localhost", "root", "", "proyectophp");
 
     //TESTING THE CONECTION
     ?>
+       
+    <?php if(!isset($_POST['nombre'])) : ?>
         <form method="post">
-             <?php
-             //CREATING THE CONNECTION
-             $connection = new mysqli("localhost", "root", "", "proyectophp");
-             //TESTING IF THE CONNECTION WAS RIGHT
-             if ($connection->connect_errno) {
-                 printf("Connection failed: %s\n", $connection->connect_error);
-                 exit();
-             }
-            ?>
-            
              <br>
                  <span>Nombre_cancion: </span><input type="text" name="nombre"><br/><br/>
-                 <span>Autores: </span><input type="text" name="apellido"><br/><br/>
-                 <span>Año_publicacion: </span><input type="email" name="email"><br/><br/>
-                 <span>Id_genero: </span><input type="password" name="pass"><br/><br/>
+                 <span>Autores: </span><input type="text" name="autores"><br/><br/>
+                 <span>Año_publicacion: </span><input type="text" name="ao"><br/><br/>
+                 <span>Id_genero: </span><input type="text" name="genero"><br/><br/>
                  <span>Enlace_youtube: </span><input type="text" name="enlace"><br/><br/>       
-                 <input class="btn btn-primary btn-xl page-scroll" name="Submit" valutype="submit" >
-                    </form>
+                 <input class="btn btn-primary btn-xl page-scroll" name="submit" type="submit" >
+        </form>
+        
+    <?php else : ?>
     <?php
-    echo $id;
+        $id=$_GET['id'];
       
     //BUILDING THE DELETE  QUERY
-    $borrar = $connection->query("update canciones set nombre_cancion='".$_POST["nombre_cancion"]."',  autores='".$_POST["autores"]."', ao_publicacion='".$_POST["ao_publicacion"]."', id_genero='".$_POST["id_genero"]."',enlace_youtube='".$_POST["enlace_youtube"]."' where id_cancion=$id");
+        $consulta="update canciones set nombre_cancion='".$_POST["nombre"]."',  autores='".$_POST["autores"]."', ao_publicacion='".$_POST["ao"]."', id_genero='".$_POST["genero"]."',enlace_youtube='".$_POST["enlace"]."' where id_cancion=$id";
+        $borrar = $connection->query($consulta);
 
-
-        //No rows returned
-        if ($borrar->rows===0) {
-          echo "No se ha modificado ninguna cancion";
+        //para saber si la consulta es buena o mala
+        if ($borrar==true) {
+            echo "La cancion se ha modificado correctamente";
         } else {
-
-          echo "La cancion se ha modificado correctamente";
+            echo "No se ha modificado ninguna cancion";
         }
-
-  } else {
-      echo "Fallo en la conexion";
-  }
-
  ?>
+ 
+ <?php endif ?>
+ 
 <br></br>
     <a href="../panel.php">Volver</a>
     <br></br>

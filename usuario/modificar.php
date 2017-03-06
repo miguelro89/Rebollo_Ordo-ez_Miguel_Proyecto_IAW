@@ -109,7 +109,7 @@
                 <?php else: ?>
                 <?php
 
-                        $consulta=$connection->query ("update usuarios set nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', email='".$_POST["pemail"]."', pass='".$_POST["pass"]."', where cod_usuario=".$_POST['nombre'].";");
+                        $consulta=$connection->query ("UPDATE usuarios SET nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', email='".$_POST["email"]."', pass='".$_POST["pass"]."', where nombre='".$_POST['nombre']."';");
 
                         $result = $connection->query($consulta);
                         if (!$result) {
