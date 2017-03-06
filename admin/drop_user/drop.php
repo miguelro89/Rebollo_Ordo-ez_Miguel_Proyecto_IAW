@@ -47,7 +47,7 @@
 
 
         //No rows returned
-        if ($borrar->rows===0) {
+        if ($borrar->rows==false) {
           echo "No se ha eliminado ningun usuario";
         } else {
 
@@ -70,8 +70,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../../estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../../estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../../estilo/js/creative.min.js"></script>
@@ -80,4 +80,3 @@
 
 </html>
         
-   

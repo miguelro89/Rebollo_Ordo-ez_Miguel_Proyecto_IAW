@@ -62,7 +62,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index.php" >Panel de control</a>
+                        <a href="index.php" >Volver</a>
                     </li>
                     <li class="page-scroll">
                         <a href="../logueo/logout.php">cerrar sesion</a>
