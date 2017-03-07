@@ -79,7 +79,7 @@
  <?php endif ?>
  
 <br></br>
-    <a href="../edit_canc/edit_canc.php">Volver</a>
+    <a href="../edit_canc/view_canc.php">Volver</a>
     <br></br>
     <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>

@@ -27,7 +27,7 @@
                 }
 
              } else {
-               header('Location: index.html?msg=error');
+                header('Location: index.html?msg=error');
              }
 
              mysqli_close($connection);

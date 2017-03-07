@@ -88,7 +88,7 @@
         </div>
     </header> 
     <br></br> 
-    <a href="../panel.php">Volver</a>
+    <a href="view_user.php">Volver</a>
     <br></br>
        
         <!-- jQuery -->

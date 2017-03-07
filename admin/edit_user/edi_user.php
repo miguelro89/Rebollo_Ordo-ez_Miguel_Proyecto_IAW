@@ -18,13 +18,14 @@
     <!-- Custom Fonts -->
     <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
+    <br></br>
 <body>
   <?php
 
   //Open the session
   session_start();
     //si la conexion es distinta a la de admin te edirige a la pagina principal y si no crea la conexion
-    if ($_SESSION["rol"]!='usuario'){
+    if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
     }else{
@@ -51,10 +52,14 @@
         
     <?php else : ?>
     <?php
-        $id=$_GET['id'];
+        $id=$_GET['id'];    
+        $nombre=$_POST['nombre'];
+        $ape=$_POST['apellido'];
+        $email=$_POST['email'];
+        $pass=$_POST['pass'];
       
     //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
-        $consulta ="UPDATE usuarios SET nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', correo_electronico='".$_POST["email"]."', password='".$_POST["pass"]."' WHERE cod_usuario=$id";
+        $consulta ="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$email', password='$pass' WHERE cod_usuario=$id";
 
         $modificar = $connection->query($consulta);
 
@@ -62,13 +67,14 @@
         if ($modificar==false) {
             echo "No se ha modificado al usuario elegido";
         } else {
+            echo "<br></br>";
             echo "Cambios en los datos del usuario realizados correctamente";
         }
     ?>
  <?php endif ?>
   
 <br></br>
-    <a href="../panel.php">Volver</a>
+    <a href="view_edit.php">Volver</a>
     <br></br>
     <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
