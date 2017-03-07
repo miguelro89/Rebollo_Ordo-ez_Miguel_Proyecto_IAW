@@ -71,7 +71,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar usuario</h2>
+                <h2 id="homeHeading">Mostrar usuarios</h2>
                 <hr>
                 <?php
 
@@ -91,6 +91,7 @@
                      <th>nombre</th>
                      <th>apellidos</th>
                      <th>correo_electronico</th>
+                     <th>Contraseña</th>
                     </tr>
 
                 <?php
@@ -118,7 +119,8 @@
                         echo "<td>".$obj->cod_usuario."</td>";
                         echo "<td>".$obj->nombre."</td>";
                         echo "<td>".$obj->apellidos."</td>";
-                        echo "<td>".$obj->correo_electronico."</td>";              
+                        echo "<td>".$obj->correo_electronico."</td>";
+                        echo "<td>".$obj->password."</td>";
                         echo "<td><form id='form0' method='get'>
                           <a href='edit.php?id=$obj->cod_usuario'>
                             <img src='../../imgs/editar.png' width='30%';/>

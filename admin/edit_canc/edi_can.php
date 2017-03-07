@@ -57,6 +57,16 @@
     //BUILDING THE DELETE  QUERY
         $consulta="update canciones set nombre_cancion='".$_POST["nombre"]."',  autores='".$_POST["autores"]."', ao_publicacion='".$_POST["ao"]."', id_genero='".$_POST["genero"]."',enlace_youtube='".$_POST["enlace"]."' where id_cancion=$id";
         $borrar = $connection->query($consulta);
+       /* while($obj = $borrar->fetch_object()) {
+            echo '<form action= edi_can.php method="post">;
+                echo "<span>".$obj->nombre."name=nombre" </span>";
+                echo "<span>".$obj->autores."</span>" name="autores";
+                echo "<span>".$obj->ao."</span>" name="ao";
+                echo "<span>".$obj->genero."</span>" name="genero";
+                echo "<span>".$obj->enlace."</span>" name="enlace";
+            echo </form>';
+                
+        };*/
 
         //para saber si la consulta es buena o mala
         if ($borrar==true) {

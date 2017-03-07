@@ -17,7 +17,31 @@
 
     <!-- Custom Fonts -->
     <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
+    <!-- Plugin CSS -->
+    <link href="../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../../estilo/css/creative.min.css" rel="stylesheet">
+    
+    <style>
+      span {
+        width: 100px;
+        display: inline-block;
+        text-align: left;
+      }
+    </style>
+    
+</head>
+<body id="page-top">
+
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h2 id="homeHeading">Borrar un usuario</h2>
+                <hr>
 
 <?php
 
@@ -39,7 +63,8 @@
   if (isset($_GET["id"])) {
 
     $id=$_GET["id"];  
-    echo $id;
+    
+    echo "<br></br>";
       
     //BUILDING THE DELETE  QUERY
     $borrar = $connection->query("DELETE FROM usuarios
@@ -47,7 +72,7 @@
 
 
         //No rows returned
-        if ($borrar->rows==false) {
+        if ($borrar==false) {
           echo "No se ha eliminado ningun usuario";
         } else {
 
@@ -59,10 +84,14 @@
   }
 
  ?>
-<br></br>
+             </div>
+        </div>
+    </header> 
+    <br></br> 
     <a href="../panel.php">Volver</a>
     <br></br>
-    <!-- jQuery -->
+       
+        <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -70,8 +99,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="../../estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="../../estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../../estilo/js/creative.min.js"></script>

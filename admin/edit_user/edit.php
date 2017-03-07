@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar usuario</title>
+    <title>Modificar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -17,50 +17,56 @@
 
     <!-- Custom Fonts -->
     <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-<?php
+</head>
+<body>
+  <?php
 
   //Open the session
   session_start();
-
+    //si la conexion es distinta a la de admin te edirige a la pagina principal y si no crea la conexion
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
-  }
-
-  //Already logged
-  if (isset($_GET["id"])) {
-
-    $id=$_GET["id"];  
-    
-    //CREATING THE CONNECTION
-    $connection = new mysqli("localhost", "root", "", "proyectophp");
-
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-    }
-    echo $id;
-      
-    //BUILDING THE DELETE  QUERY
-    $borrar = $connection->query("update usuarios set nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', email='".$_POST["email"]."', pass='".$_POST["pass"]."', where cod_usuario=$id");
-
-
-        //No rows returned
-        if ($borrar->rows===0) {
-          echo "No se ha modificado ningun usuario";
-        } else {
-
-          echo "El usuario se ha modificado correctamente";
+    }else{
+        $connection = new mysqli("localhost", "root", "", "proyectophp");
+        //TESTING IF THE CONNECTION WAS RIGHT
+        if ($connection->connect_errno) {
+            printf("Connection failed: %s\n", $connection->connect_error);
+            exit();
         }
+    }
 
-  } else {
-      echo "Fallo en la conexion";
-  }
+    //TESTING THE CONECTION
+    ?>
+       
+    <?php if(!isset($_POST['nombre'])) : ?>
+        <form method="post">
+             <br>
+                 <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
+                 <span>Apellido: </span><input type="text" name="apellido"><br/><br/>
+                 <span>Correo electronico: </span><input type="email" name="email"><br/><br/>
+                 <span>Contraseña: </span><input type="password" name="pass"><br/><br/>                      
+                 <input class="btn btn-primary btn-xl page-scroll" name="submit" type="submit" >
+        </form>
+        
+    <?php else : ?>
+    <?php
+        $id=$_GET['id'];
+      
+    //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
+        $consulta ="UPDATE usuarios SET nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', correo_electronico='".$_POST["email"]."', password='".$_POST["pass"]."' WHERE cod_usuario=$id";
 
- ?>
+        $modificar = $connection->query($consulta);
+
+        //para saber si la consulta es buena o mala
+        if ($modificar==false) {
+            echo "No se ha modificado al usuario elegido";
+        } else {
+            echo "Cambios en los datos del usuario realizados correctamente";
+        }
+    ?>
+ <?php endif ?>
+  
 <br></br>
     <a href="../panel.php">Volver</a>
     <br></br>
@@ -80,6 +86,4 @@
 
 </body>
 
-</html>
-        
-   
+</html>  

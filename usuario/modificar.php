@@ -78,8 +78,15 @@
                     session_start();
 
                     if ($_SESSION["rol"] != "usuario") {
-                  header('Location: ../index.html');
-                 } 
+                        header('Location: ../index.html');
+                    } else {
+                        $connection = new mysqli("localhost", "root", "", "proyectophp");
+                         //TESTING IF THE CONNECTION WAS RIGHT
+                        if ($connection->connect_errno) {
+                            printf("Connection failed: %s\n", $connection->connect_error);
+                            exit();
+                        }
+                    }
                     //Si el rol "NO" es usuario redirigir a index.html
                 
 
@@ -88,12 +95,8 @@
                     <form method="post">
                         <?php
                         //CREATING THE CONNECTION
-                        $connection = new mysqli("localhost", "root", "", "proyectophp");
-                        //TESTING IF THE CONNECTION WAS RIGHT
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+                        
+                       
 
                         ?>
 
