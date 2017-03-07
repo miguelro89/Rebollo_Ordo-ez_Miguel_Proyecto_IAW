@@ -87,10 +87,10 @@
 
                 <table border="1">
                     <tr>
-                     <th>cod_usuario</th>
-                     <th>nombre</th>
-                     <th>apellidos</th>
-                     <th>correo_electronico</th>
+                     <th>Codigo usuario</th>
+                     <th>Nombre</th>
+                     <th>Apellidos</th>
+                     <th>Correo electronico</th>
                      <th>Contraseña</th>
                     </tr>
 

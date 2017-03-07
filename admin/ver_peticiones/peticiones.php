@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Crear usuario</title>
+    <title>Mostrar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -71,17 +71,16 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Añadir una cancion</h2>
+                <h2 id="homeHeading">Borrar usuario</h2>
                 <hr>
-                
                 <?php
 
                     session_start();
-                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
-                    if ($_SESSION["rol"]!='admin'){
-                            session_destroy();
-                            header("Location:../");
-                    }else{
+
+                    if($_SESSION["rol"] != "admin") {
+
+                    header ("Location: ../../index.php");
+                    } else{
                             $connection = new mysqli("localhost", "root", "", "proyectophp");
                             //TESTING IF THE CONNECTION WAS RIGHT
                             if ($connection->connect_errno) {
@@ -91,58 +90,43 @@
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 
+                ?>
 
-            //para que el admin pueda insertar una cancion
+                <table border="1">
+                    <tr>
+                     <th>Nombre cancion</th>
+                     <th>Autor/es</th>
+                    </tr>
 
-            if (!isset($_POST["nombre"])) : ?>                   
+                <?php
 
-                    <form method="post">
 
-                        <br>
-                            <span>Nombre cancion: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Autor/es: </span><input type="text" name="autor"><br/><br/>
-                            <span>Año publicacion: </span><input type="number" name="ao"><br/><br/>
-                            <span>Genero: </span><input type="text" name="genero"><br/><br/>
-                            <span>Enlace youtube: </span><input type="text" name="enlace"><br/><br/>
-                            <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
-                    </form>
-
-                <?php else: ?>
-                <?php 
+                //Para eliminar
+                if ($result = $connection->query("SELECT * FROM peticiones;")) {
+                } else {
+                // Si no hace la consulta es error, por lo que muestro el error
+                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                }
+                // mostramos todos los datos de nuesyro usuarios
+                    // y esa informacion la almacenamos en result
+                while($obj = $result->fetch_object()) {
+                    echo "<tr>";
+                        echo "<td>".$obj->nombre_cancion."</td>";
+                        echo "<td>".$obj->autor."</td>";            
+                    echo "</tr>";
+          }
+          
+          $result->close(); // Cierramos la consulta
+          unset($obj);
+          unset($connection); // Cierramos la conexión
+          ?>
+                  
                 
-                    $nombre=$_POST['nombre'];
-                    $autor=$_POST['autor'];
-                    $ano=$_POST['ao'];
-                    $genero=$_POST['genero'];
-                    $enlace=$_POST['enlace'];
+                </table> 
                 
-                $consulta= "INSERT INTO canciones VALUES(NULL,'$nombre','$autor','$ano','$genero','$enlace')";
-                    $result = $connection->query($consulta);
-                        
-                    if (!$result) {
-
-                            echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
-                            echo "<br/><br/><br/>";
-
-
-                       } else {
-
-                       echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>La cancion ha sido añadida correctamente</h3>";
-                       echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
-                       echo "<br/><br/>";
-                       }
-    
-                    ?>
-                <?php endif ?>
-                
-                
-            </div>
+                </div>
         </div>
     </header>   
-
    
 
     <!-- jQuery -->

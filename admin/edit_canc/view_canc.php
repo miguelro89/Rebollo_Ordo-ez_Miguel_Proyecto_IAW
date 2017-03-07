@@ -87,11 +87,11 @@
 
                 <table border="1">
                     <tr>
-                     <th>nombre cancion</th>
-                     <th>autores</th>
-                     <th>año publicacion</th>
-                     <th>id genero</th>
-                     <th>enlace youtube</th>
+                     <th>Nombre cancion</th>
+                     <th>Autores</th>
+                     <th>Año publicacion</th>
+                     <th>Genero</th>
+                     <th>Enlace youtube</th>
                     </tr>
 
                 <?php

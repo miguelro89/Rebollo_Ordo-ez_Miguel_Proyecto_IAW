@@ -94,7 +94,7 @@
             <?php
             session_start();
                     //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
-                    if ($_SESSION["rol"]!='admin'){
+                    if ($_SESSION["rol"]!='usuario'){
                             session_destroy();
                             header("Location:../");
                     }else{
@@ -105,26 +105,27 @@
                                 exit();
                             }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
+                    //Si el rol "NO" es usuario redirigir a index.php
                 
 
-            //para que el admin pueda crear un usuario
+            //para que el usuario pueda pedir una cancion
 
             if (!isset($_POST["nombre"])) : ?>                   
 
                     <form method="post">
 
                         <br>
-                            <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
-                            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
-                            <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
+                            <span>Nombre cancion: </span><input type="text" name="nombre"><br/><br/>
+                            <span>Autor/es: </span><input type="text" name="autor"><br/><br/>
                             <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
                     </form>
 
                 <?php else: ?>
                 <?php 
-                $consulta= "INSERT INTO usuarios            VALUES(NULL,'".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."','".$_POST['pass']."','usuario')";
+                $nomb=$_POST['nombre'];
+                $autor=$_POST['autor'];
+            
+                $consulta= "INSERT INTO peticiones VALUES('$nomb','$autor')";
                     $result = $connection->query($consulta);
                         
                     if (!$result) {
@@ -137,7 +138,7 @@
                        } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
+                       echo "<h3 id='homeHeading'>La peticion ha sido un exito</h3>";
                        echo "<br/><br/>";
                        echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
                        echo "<br/><br/>";
@@ -145,6 +146,14 @@
     
                     ?>
                 <?php endif ?>
+        </div>
+        <br></br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h4>El administrador se conecta todos los domingos a las <font size=11 color="red">21:00</font> para ver las peticiones de canciones de la semana, y acto seguido empieza a buscarlas y a introducirlas en la página web, para tenerlas como muy tarde el lunes a las <font size=11 color="red">8:00</font></h4>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Contact Section -->

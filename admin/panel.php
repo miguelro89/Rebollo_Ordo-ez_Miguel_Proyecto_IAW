@@ -108,7 +108,7 @@
                         </span>
                     </div>
                     <div class="intro-text">
-                        <a href="edit_canc/edit_canc.php">
+                        <a href="edit_canc/view_canc.php">
                             <span class="name" id="blanco">Modificar una cancion</span>
                         </a>
                         <hr class="star-light">
@@ -127,6 +127,14 @@
                     <div class="intro-text">
                         <a href="borrar_canc/view_canc.php">
                             <span class="name" id="blanco">Borrar una cancion</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">
+                        </span>
+                    </div>
+                    <div class="intro-text">
+                        <a href="ver_peticiones/peticiones.php">
+                            <span class="name" id="blanco">Peticiones</span>
                         </a>
                         <hr class="star-light">
                         <span class="skills">

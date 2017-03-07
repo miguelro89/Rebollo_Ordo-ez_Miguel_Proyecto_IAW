@@ -129,7 +129,9 @@
                         echo "<td>".$fila['autores']."</td>";
                         echo "<td>".$fila['ao_publicacion']."</td>";
                         echo "<td>".$fila['id_genero']."</td>";
-                        echo "<td>".$fila['enlace_youtube']."</td>";
+                        ?>
+                        <td><iframe width=100 height=100 src=<?php echo $fila['enlace_youtube']?>></iframe></td>;
+                        <?php
                       echo "</tr>";
                     }
 
