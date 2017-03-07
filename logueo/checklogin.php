@@ -19,8 +19,7 @@
                 $_SESSION["username"]=$obj->nombre;
                 $_SESSION["rol"] = $obj->rol;
                 $_SESSION["password"] = $obj->password;
-                //var_dump($_SESSION);
-              // var_dump($obj);
+
                 if ($obj->rol!="admin") {
                   header('Location: ../usuario/');
                  } else {

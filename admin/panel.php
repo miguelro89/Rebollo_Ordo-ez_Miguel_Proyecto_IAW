@@ -116,6 +116,22 @@
                         
                         </span>
                     </div>
+                    <div class="intro-text">
+                        <a href="ins_canc/inser_canc.php">
+                            <span class="name" id="blanco">Insertar una cancion</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">
+                        </span>
+                    </div>
+                    <div class="intro-text">
+                        <a href="borrar_canc/view_canc.php">
+                            <span class="name" id="blanco">Borrar una cancion</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

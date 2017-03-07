@@ -71,7 +71,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar usuario</h2>
+                <h2 id="homeHeading">Borrar cancion</h2>
                 <hr>
                 <?php
 
@@ -80,13 +80,6 @@
                     if($_SESSION["rol"] != "admin") {
 
                     header ("Location: ../../index.php");
-                    } else{
-                            $connection = new mysqli("localhost", "root", "", "proyectophp");
-                            //TESTING IF THE CONNECTION WAS RIGHT
-                            if ($connection->connect_errno) {
-                                printf("Connection failed: %s\n", $connection->connect_error);
-                                exit();
-                            }
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 
@@ -94,17 +87,28 @@
 
                 <table border="1">
                     <tr>
-                     <th>cod_usuario</th>
-                     <th>nombre</th>
-                     <th>apellidos</th>
-                     <th>correo_electronico</th>
+                     <th>id cancion</th>
+                     <th>nombre cancion</th>
+                     <th>autor/es</th>
+                     <th>año publicacion</th>
+                     <th>genero</th>
+                     <th>enlace</th>
                     </tr>
 
                 <?php
 
 
+
+                $connection = new mysqli("localhost", "root", "", "proyectophp");
+                //Conexion a la base de datos (localhost, usuario, contraseña, bd).
+
+                 if ($connection->connect_errno) {
+                     printf("Connection failed: %s\n", $connection->connect_error);
+                     exit();
+                 }
+
                 //Para eliminar
-                if ($result = $connection->query("SELECT * FROM usuarios;")) {
+                if ($result = $connection->query("SELECT * FROM canciones;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
@@ -113,12 +117,14 @@
                     // y esa informacion la almacenamos en result
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
-                        echo "<td>".$obj->cod_usuario."</td>";
-                        echo "<td>".$obj->nombre."</td>";
-                        echo "<td>".$obj->apellidos."</td>";
-                        echo "<td>".$obj->correo_electronico."</td>";              
+                        echo "<td>".$obj->id_cancion."</td>";
+                        echo "<td>".$obj->nombre_cancion."</td>";
+                        echo "<td>".$obj->autores."</td>";
+                        echo "<td>".$obj->ao_publicacion."</td>";
+                        echo "<td>".$obj->id_genero."</td>";
+                        echo "<td>".$obj->enlace_youtube."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='drop.php?id=$obj->cod_usuario'>
+                          <a href='drop_canc.php?id=$obj->id_cancion'>
                             <img src='../../imgs/borrar.jpeg' width='30%';/>
                           </a>
                         </form></td>";

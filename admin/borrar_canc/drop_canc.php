@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modificar usuarios</title>
+    <title>Borrar usuario</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -17,14 +17,37 @@
 
     <!-- Custom Fonts -->
     <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../../estilo/css/creative.min.css" rel="stylesheet">
+    
+    <style>
+      span {
+        width: 100px;
+        display: inline-block;
+        text-align: left;
+      }
+    </style>
+    
 </head>
-<body>
-  <?php
+<body id="page-top">
+
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h2 id="homeHeading">Borrar una cancion</h2>
+                <hr>
+
+<?php
 
   //Open the session
   session_start();
-    //si la conexion es distinta a la de admin te edirige a la pagina principal y si no crea la conexion
-    if ($_SESSION["rol"]!='usuario'){
+    if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
     }else{
@@ -36,41 +59,39 @@
         }
     }
 
-    //TESTING THE CONECTION
-    ?>
-       
-    <?php if(!isset($_POST['nombre'])) : ?>
-        <form method="post">
-             <br>
-                 <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                 <span>Apellido: </span><input type="text" name="apellido"><br/><br/>
-                 <span>Correo electronico: </span><input type="email" name="email"><br/><br/>
-                 <span>Contraseña: </span><input type="password" name="pass"><br/><br/>                      
-                 <input class="btn btn-primary btn-xl page-scroll" name="submit" type="submit" >
-        </form>
-        
-    <?php else : ?>
-    <?php
-        $id=$_GET['id'];
+  //Already logged
+  if (isset($_GET["id"])) {
+
+    $id=$_GET["id"];  
+    
+    echo "<br></br>";
       
-    //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
-        $consulta ="UPDATE usuarios SET nombre='".$_POST["nombre"]."',  apellidos='".$_POST["apellido"]."', correo_electronico='".$_POST["email"]."', password='".$_POST["pass"]."' WHERE cod_usuario=$id";
+    //BUILDING THE DELETE  QUERY
+    $borrar = $connection->query("DELETE FROM canciones
+      WHERE id_cancion=$id");
 
-        $modificar = $connection->query($consulta);
 
-        //para saber si la consulta es buena o mala
-        if ($modificar==false) {
-            echo "No se ha modificado al usuario elegido";
+        //No rows returned
+        if ($borrar==false) {
+          echo "No se ha eliminado ninguna cancion";
         } else {
-            echo "Cambios en los datos del usuario realizados correctamente";
+
+          echo "La cancion se ha eliminado correctamente";
         }
-    ?>
- <?php endif ?>
-  
-<br></br>
+
+  } else {
+      echo "Fallo en la conexion";
+  }
+
+ ?>
+             </div>
+        </div>
+    </header> 
+    <br></br> 
     <a href="../panel.php">Volver</a>
     <br></br>
-    <!-- jQuery -->
+       
+        <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -86,4 +107,5 @@
 
 </body>
 
-</html>  
+</html>
+        

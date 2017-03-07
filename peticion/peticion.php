@@ -91,45 +91,60 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" placeholder="nombre" id="nombre" required data-validation-required-message="Introduce tu nombre.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Correo electrónico</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Introduce mail.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
+            <?php
+            session_start();
+                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
+                    if ($_SESSION["rol"]!='admin'){
+                            session_destroy();
+                            header("Location:../");
+                    }else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
+                    }
+                    //Si el rol "NO" es admin redirigir a index.php
+                
 
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Peticion</label>
-                                <textarea rows="5" class="form-control" placeholder="peticion" id="peticion" required data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
+            //para que el admin pueda crear un usuario
+
+            if (!isset($_POST["nombre"])) : ?>                   
+
+                    <form method="post">
+
                         <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
-                            </div>
-                        </div>
+                            <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
+                            <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
+                            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
+                            <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
+                            <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
                     </form>
-                </div>
-            </div>
+
+                <?php else: ?>
+                <?php 
+                $consulta= "INSERT INTO usuarios            VALUES(NULL,'".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."','".$_POST['pass']."','usuario')";
+                    $result = $connection->query($consulta);
+                        
+                    if (!$result) {
+
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                            echo "<br/><br/><br/>";
+
+
+                       } else {
+
+                       echo "<br/><br/><br/><br/><br/><br/>";
+                       echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
+                       echo "<br/><br/>";
+                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
+                       echo "<br/><br/>";
+                       }
+    
+                    ?>
+                <?php endif ?>
         </div>
     </section>
     <!-- Contact Section -->

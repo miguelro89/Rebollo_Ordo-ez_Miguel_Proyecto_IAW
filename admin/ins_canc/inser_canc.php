@@ -9,22 +9,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar usuario</title>
+    <title>Crear usuario</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="../estilo/css/creative.min.css" rel="stylesheet">
+    <link href="../../estilo/css/creative.min.css" rel="stylesheet">
     
     <style>
       span {
@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../index.php">panel de control</a>
+                        <a class="page-scroll" href="../panel.php">Volver atras</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="../logueo/logout.php">Cerrar sesion</a>
@@ -71,71 +71,73 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Modificar cuenta</h2>
+                <h2 id="homeHeading">Añadir una cancion</h2>
                 <hr>
+                
                 <?php
 
                     session_start();
-
-                    if ($_SESSION["rol"] != "usuario") {
-                        header('Location: ../index.html');
-                    } else {
-                        $connection = new mysqli("localhost", "root", "", "proyectophp");
-                         //TESTING IF THE CONNECTION WAS RIGHT
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
+                    if ($_SESSION["rol"]!='admin'){
+                            session_destroy();
+                            header("Location:../");
+                    }else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
-                    //Si el rol "NO" es usuario redirigir a index.html
+                    //Si el rol "NO" es admin redirigir a index.php
                 
 
+            //para que el admin pueda insertar una cancion
 
-                if (!isset($_POST["nombre"])) :?> 
+            if (!isset($_POST["nombre"])) : ?>                   
+
                     <form method="post">
+
                         <br>
-                            <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
-                            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
-                            <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
+                            <span>Nombre cancion: </span><input type="text" name="nombre"><br/><br/>
+                            <span>Autor/es: </span><input type="text" name="autor"><br/><br/>
+                            <span>Año publicacion: </span><input type="number" name="ao"><br/><br/>
+                            <span>Id genero: </span><input type="text" name="genero"><br/><br/>
+                            <span>Enlace youtube: </span><input type="text" name="enlace"><br/><br/>
                             <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
                     </form>
 
                 <?php else: ?>
-                <?php
-                //pasamos todos los datos a nuevas variables para poder hacer despues el update más simple
-                    $nombre=$_POST['nombre'];
-                    $ape=$_POST['apellido'];
-                    $correo=$_POST['email'];
-                    $nuev_contra=$_POST['pass'];
-                    $usuario=$_SESSION['username'];
-                    $contra=$_SESSION['password'];
-
-
-                        $consulta="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$correo', password='$nuev_contra' where nombre='$usuario' and password='$contra'";
-
-
-                        $mod_usu = $connection->query($consulta);
-        
+                <?php 
                 
-                        if (!$mod_usu) {
+                    $nombre=$_POST['nombre'];
+                    $autor=$_POST['autor'];
+                    $ano=$_POST['ao'];
+                    $genero=$_POST['genero'];
+                    $enlace=$_POST['enlace'];
+                
+                $consulta= "INSERT INTO canciones VALUES(NULL,'$nombre','$autor','$ano','$genero','$enlace')";
+                    $result = $connection->query($consulta);
+                        
+                    if (!$result) {
 
                             echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la modificación de los datos</h2>";
+                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
                             echo "<br/><br/><br/>";
 
 
                        } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>Los datos han sido modificados correctamente</h3>";
+                       echo "<h3 id='homeHeading'>La cancion ha sido añadida correctamente</h3>";
                        echo "<br/><br/>";
-         
+                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
+                       echo "<br/><br/>";
                        }
     
-
-            ?>
-              <?php endif ?>         
+                    ?>
+                <?php endif ?>
+                
                 
             </div>
         </div>
@@ -144,10 +146,10 @@
    
 
     <!-- jQuery -->
-    <script src="../estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -155,7 +157,7 @@
     <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../estilo/js/creative.min.js"></script>
+    <script src="../../estilo/js/creative.min.js"></script>
 
 </body>
 
