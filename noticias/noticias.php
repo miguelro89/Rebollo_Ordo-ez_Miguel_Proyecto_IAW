@@ -74,7 +74,9 @@
                         <hr class="star-light">
                         <span class="skills">Tu información sobre tu musica favorita</span>
                     </div>
-					<br></br>
+                    <br></br> 
+                    <div class="intro-text">
+                        <img width="500px" height="275px" src="http://www.072reur.es/072/images/stories/072/noticias_img.jpg"></img>
 					
             </div>
         </div>
@@ -103,7 +105,7 @@
                     Otra de las novedades de este 5º Aniversario será una espectacular producción escenográfica temática no solo en los escenarios si no en un recinto que será transformado en un auténtico paraíso para disfrute y recreo de los “dreamers”. Una temática que la organización desvelará muy pronto.</span>
                     
             <br></br>        
-            <div class="container">Más información en:
+            <div class="container"><font color="green">Más información en: &nbsp</font>
                     <a href="http://www.dreambeach.es/2017/">Página oficial</a>                   
             </div>
 
@@ -113,7 +115,7 @@
                     <span class="skills">Nuevo año, nuevos retos, nuevas metas.... y con el nuevo año llega también Raveart!!! Vuelve el festival invernal con la mejor música electrónica que cada año te trae lo mas destacado del sonido breaks nacional e internacional, una cita que este año vuelve a SEVILLA, la provincia que lo vio nacer, a un lugar privilegiado que se convirtió en icono de la música más vanguardista en el que se dieron conocer muchos pesos pesados de la escena electrónica en Andalucía en los años 90. Se trata del antiguo complejo “Sevilla Mía”, en la actualidad reconvertido en un espacio para celebraciones y eventos con el nombre de COMPLEJO OASIS, un espacio que fue un gran icono de la música electrónica en Andalucía y que volverá a serlo muchos años después de que se vivieran aquellos grandes momentos. Para tan importante cita, hemos preparado un gran line up con los mejores artistas actuales tanto nacionales como internacionales, así como de las nuevas promesas, muchas de ellas ya consolidadas que no pueden faltar en la cita más vanguardista del Break en Andalucía, el Retro también tendrá cabida en un escenario para los amantes de los sonidos y emociones de hace años. El SÁBADO 18 DE MARZO es la fecha en la que “Sevilla Mía” volverá a rugir de nuevo...</span>
     
             <br></br>       
-            <div class="container">Más información en:
+            <div class="container"><font color="green">Más información en: &nbsp</font>
                     <a href="https://www.ticketea.com/entradas-festival-winter-2017/">Info + entradas</a>                   
             </div>
             <br></br>
@@ -123,7 +125,7 @@
                     <span class="skills">En la siguiente página encontrarás toda la informacion sobre tus djs y productores preferidos y algunos desconocidos, los cuales podrás sorprenderte, interesantes noticias y eventos siempre enfocados al género de ésta página, no tiene ningún desperdicio.</span>
 
             <br></br>       
-            <div class="container">Más información en:
+            <div class="container"><font color="green">Más información en: &nbsp</font>
                     <a href="http://www.beatmashmagazine.com/">Beatmash magazine</a>                   
             </div>
             <br></br>
