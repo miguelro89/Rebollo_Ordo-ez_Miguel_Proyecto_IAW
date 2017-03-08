@@ -62,6 +62,9 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="../noticias/noticias.php">Noticias</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="panel.php">Panel de Admin</a>
                     </li>
                     <li class="page-scroll">

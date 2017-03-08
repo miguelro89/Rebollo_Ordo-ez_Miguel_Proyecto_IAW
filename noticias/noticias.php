@@ -86,8 +86,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-text">
-                        <hr class="star-light">
-                        <span class="skills">Dreambeach 2017</span>
+                    <br></br>
+                <span class="skills"><font color="blue" size="9">Dreambeach 2017</font></span>
 					<br></br>
                     <span class="skills">DreamBeach Villaricos sorprende con el mayor y más espectacular avance de su historia como punto de partida para su 5º aniversario. 20 artistas, 20 Top para Dreambeach. El festival apuesta por la alta calidad y la variedad en los diferentes estilos electrónicos.
 
@@ -108,7 +108,7 @@
             </div>
 
             <br></br>
-            <span class="skills">Winter Festival 2017</span>
+                <span class="skills" ><font color="blue" size="9">Winter Festival 2017</font></span>
 					<br></br>
                     <span class="skills">Nuevo año, nuevos retos, nuevas metas.... y con el nuevo año llega también Raveart!!! Vuelve el festival invernal con la mejor música electrónica que cada año te trae lo mas destacado del sonido breaks nacional e internacional, una cita que este año vuelve a SEVILLA, la provincia que lo vio nacer, a un lugar privilegiado que se convirtió en icono de la música más vanguardista en el que se dieron conocer muchos pesos pesados de la escena electrónica en Andalucía en los años 90. Se trata del antiguo complejo “Sevilla Mía”, en la actualidad reconvertido en un espacio para celebraciones y eventos con el nombre de COMPLEJO OASIS, un espacio que fue un gran icono de la música electrónica en Andalucía y que volverá a serlo muchos años después de que se vivieran aquellos grandes momentos. Para tan importante cita, hemos preparado un gran line up con los mejores artistas actuales tanto nacionales como internacionales, así como de las nuevas promesas, muchas de ellas ya consolidadas que no pueden faltar en la cita más vanguardista del Break en Andalucía, el Retro también tendrá cabida en un escenario para los amantes de los sonidos y emociones de hace años. El SÁBADO 18 DE MARZO es la fecha en la que “Sevilla Mía” volverá a rugir de nuevo...</span>
     
@@ -118,7 +118,7 @@
             </div>
             <br></br>
     
-            <span class="skills">Noticias sobre DJ's/Productores</span>
+                <span class="skills"><font color="blue" size="9">Noticias sobre DJ's/Productores</font></span>
 					<br></br>
                     <span class="skills">En la siguiente página encontrarás toda la informacion sobre tus djs y productores preferidos y algunos desconocidos, los cuales podrás sorprenderte, interesantes noticias y eventos siempre enfocados al género de ésta página, no tiene ningún desperdicio.</span>
 
