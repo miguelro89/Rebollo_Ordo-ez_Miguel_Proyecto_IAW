@@ -45,7 +45,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Music is life</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,7 +55,7 @@
                         <a class="page-scroll" href="../panel.php">Volver atras</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="../logueo/logout.php">Cerrar sesion</a>
+                        <a class="page-scroll" href="../../logueo/logout.php">Cerrar sesion</a>
                     </li>
                     
                     <li>
@@ -98,6 +98,7 @@
                      <th>Nombre</th>
                      <th>Apellidos</th>
                      <th>Correo electronico</th>
+                     <th>Contraseña</th>
                     </tr>
 
                 <?php
@@ -116,7 +117,8 @@
                         echo "<td>".$obj->cod_usuario."</td>";
                         echo "<td>".$obj->nombre."</td>";
                         echo "<td>".$obj->apellidos."</td>";
-                        echo "<td>".$obj->correo_electronico."</td>";              
+                        echo "<td>".$obj->correo_electronico."</td>";      
+                        echo "<td>".$obj->password."</td>"; 
                         echo "<td><form id='form0' method='get'>
                           <a href='drop.php?id=$obj->cod_usuario'>
                             <img src='../../imgs/borrar.jpeg' width='30%';/>

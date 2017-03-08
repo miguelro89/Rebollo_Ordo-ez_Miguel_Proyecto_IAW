@@ -41,7 +41,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Music is life</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -140,7 +140,7 @@
                        echo "<br/><br/><br/><br/><br/><br/>";
                        echo "<h3 id='homeHeading'>La peticion ha sido un exito</h3>";
                        echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
+                       echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
                        echo "<br/><br/>";
                        }
     
@@ -151,7 +151,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h4>El administrador se conecta todos los domingos a las <font size=11 color="red">21:00</font> para ver las peticiones de canciones de la semana, y acto seguido empieza a buscarlas y a introducirlas en la página web, para tenerlas como muy tarde el lunes a las <font size=11 color="red">8:00</font></h4>
+                    <h4>El administrador se conecta todos los domingos a las <font color="red">21:00</font> para ver las peticiones de canciones de la semana, y acto seguido empieza a buscarlas y a introducirlas en la página web, para que las podáis disfrutar antes del lunes a las <font color="red">8:00</font></h4>
                 </div>
             </div>
         </div>

@@ -21,7 +21,6 @@
     <br></br>
 <body>
   <?php
-
   //Open the session
   session_start();
     //si la conexion es distinta a la de admin te edirige a la pagina principal y si no crea la conexion
@@ -36,7 +35,6 @@
             exit();
         }
     }
-
     //TESTING THE CONECTION
     ?>
        
@@ -60,9 +58,7 @@
       
     //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
         $consulta ="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$email', password='$pass' WHERE cod_usuario=$id";
-
         $modificar = $connection->query($consulta);
-
         //para saber si la consulta es buena o mala
         if ($modificar==false) {
             echo "No se ha modificado al usuario elegido";

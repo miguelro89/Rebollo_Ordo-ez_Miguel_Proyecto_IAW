@@ -1,32 +1,26 @@
 <?php
-        session_start();
-      ?>
+    session_start();
+?>
 
 
-      <!DOCTYPE html>
-      <html lang="en">
+     <!DOCTYPE html>
+     <html lang="en">
 
-      <head>
+     <head>
 
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <meta name="description" content="">
-          <meta name="author" content="">
-
-          <title>Freelancer - Start Bootstrap Theme</title>
-
-          <!-- Bootstrap Core CSS -->
-          <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="description" content="">
+         <meta name="author" content="">
+         <title>Freelancer - Start Bootstrap Theme</title>      <!-- Bootstrap Core CSS -->
+         <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
           <!-- Theme CSS -->
-          <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
-
+         <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
           <!-- Custom Fonts -->
-          <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-          <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
           <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
           <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
           <!--[if lt IE 9]>
@@ -46,7 +40,7 @@
                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                       </button>
-                      <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                      <a class="navbar-brand" href="#page-top">Music is life</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -110,9 +104,6 @@
                             <td><b>enlace</b></td>
                         </tr>
 
-                        <?php
-                          session_start();
-                        ?>
 
                         <?php
 
@@ -122,13 +113,14 @@
 
 
                           while ($fila=mysqli_fetch_array($result)) {
+                              $link=$fila['enlace_youtube'];
                             echo "<tr>";
                               echo "<td>".$fila['id_cancion']."</td>";
                               echo "<td>".$fila['nombre_cancion']."</td>";
                               echo "<td>".$fila['autores']."</td>";
                               echo "<td>".$fila['ao_publicacion']."</td>";
                               echo "<td>".$fila['id_genero']."</td>";
-                              echo "<td>".$fila['enlace_youtube']>."</td>";
+                              echo "<td><a href='$link'>".$fila['enlace_youtube']."</a></td>";
                             echo "</tr>";
                           }
 
@@ -147,51 +139,26 @@
 
           <!-- Footer -->
           <footer class="text-center">
-              <div class="footer-above">
-                  <div class="container">
-                      <div class="row">
-                          <div class="footer-col col-md-4">
-                              <h3>Location</h3>
-                              <p>I.E.S Triana
-                                  <br>Sevilla, España</p>
-                          </div>
-                          <div class="footer-col col-md-4">
-                              <h3>Around the Web</h3>
-                              <ul class="list-inline">
-                                  <li>
-                                      <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                                  </li>
-                                  <li>
-                                      <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                                  </li>
-                                  <li>
-                                      <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                                  </li>
-                                  <li>
-                                      <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                                  </li>
-                                  <li>
-                                      <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="footer-col col-md-4">
-                              <h3>About Freelancer</h3>
-                              <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="footer-below">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              Copyright &copy; Your Website 2016
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </footer>
+        <div class="footer-above" align="center">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-lg-12">
+                        <h3>Location</h3>
+                        <p>I.E.S TRIANA
+                            <br>Sevilla, España</p>
+                    </div>                  
+                </div>
+            </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Your Website 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
           <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
           <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">

@@ -46,7 +46,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Music is life</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,7 +73,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">ELECTRIK EDM</span>
                         <hr class="star-light">
@@ -112,10 +111,6 @@
                   </tr>
 
                   <?php
-                    session_start();
-                  ?>
-
-                  <?php
 
                     $conexion=mysqli_connect('localhost','root','','proyectophp');
                     $consulta="SELECT * FROM canciones WHERE id_genero= 'trap'";
@@ -123,15 +118,14 @@
 
 
                     while ($fila=mysqli_fetch_array($result)) {
+                        $link=$fila['enlace_youtube'];
                       echo "<tr>";
                         echo "<td>".$fila['id_cancion']."</td>";
                         echo "<td>".$fila['nombre_cancion']."</td>";
                         echo "<td>".$fila['autores']."</td>";
                         echo "<td>".$fila['ao_publicacion']."</td>";
                         echo "<td>".$fila['id_genero']."</td>";
-                        ?>
-                        <td><iframe width=100 height=100 src=<?php echo $fila['enlace_youtube']?>></iframe></td>;
-                        <?php
+                        echo "<td><a href='$link'>".$fila['enlace_youtube']."</a></td>";
                       echo "</tr>";
                     }
 
@@ -151,41 +145,16 @@
 
     <!-- Footer -->
     <footer class="text-center">
-        <div class="footer-above">
+        <div class="footer-above" align="center">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-lg-12">
                         <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
+                        <p>I.E.S TRIANA
+                            <br>Sevilla, España</p>
+                    </div>                  
                 </div>
             </div>
-        </div>
         <div class="footer-below">
             <div class="container">
                 <div class="row">
@@ -196,7 +165,6 @@
             </div>
         </div>
     </footer>
-
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
         <a class="btn btn-primary" href="#page-top">

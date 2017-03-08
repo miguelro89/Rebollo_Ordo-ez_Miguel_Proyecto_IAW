@@ -46,7 +46,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Music is life</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -120,7 +120,7 @@
            exit();
          }
 
-          $consulta= "INSERT INTO usuarios VALUES('null','".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."','".$_POST['pass']."','usuario')";
+          $consulta= "INSERT INTO usuarios VALUES('null','".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."',md5('".$_POST['pass']."'),'usuario')";
 
           $result = $connection->query($consulta);
           if (!$result) {
