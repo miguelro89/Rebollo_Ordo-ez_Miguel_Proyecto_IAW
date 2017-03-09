@@ -121,6 +121,7 @@
          }
 
           $consulta= "INSERT INTO usuarios VALUES('null','".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."',md5('".$_POST['pass']."'),'usuario')";
+        
 
           $result = $connection->query($consulta);
           if (!$result) {
