@@ -10,18 +10,18 @@
              die("La conexion ha fallado: " . $connection->connect_error);
             }
             $username = $_POST['username'];
-            $password = $_POST['password'];
-            $sql = "SELECT * FROM usuarios WHERE nombre = '$username' AND password='$password'";
+            $password = md5($_POST['password']);
+            $sql = "SELECT * FROM usuarios WHERE nombre ='$username' AND password='$password'";
             $result = $connection->query($sql);
             $obj=$result->fetch_object();
-            if ($result->num_rows > 0) {
-
+            if ($result) {
                 $_SESSION["username"]=$obj->nombre;
                 $_SESSION["rol"] = $obj->rol;
                 $_SESSION["password"] = $obj->password;
-
+                var_dump($_SESSION);
+        
                 if ($obj->rol!="admin") {
-                  header('Location: ../usuario/');
+                    header('Location: ../usuario/');
                  } else {
                      header('Location: ../admin/');
                 }

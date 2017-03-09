@@ -74,14 +74,22 @@
                 <h2 id="homeHeading">Borrar cancion</h2>
                 <hr>
                 <?php
-
+                    //abrimos sesion
                     session_start();
-
+                    //si el rol es distinto de admin, me redirige al index
                     if($_SESSION["rol"] != "admin") {
-
+                        
                     header ("Location: ../../index.php");
+                    //Si el rol es admin me crea la conexion
+                    } else {
+                         $connection = new mysqli("localhost", "root", "", "proyectophp");
+                       //Conexion a la base de datos (localhost, usuario, contraseña, bd).
+                        if ($connection->connect_errno) {
+                            printf("Connection failed: %s\n", $connection->connect_error);
+                            exit();
+                        }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
+                   
                 
                 ?>
 
@@ -98,23 +106,13 @@
                 <?php
 
 
-
-                $connection = new mysqli("localhost", "root", "", "proyectophp");
-                //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-
-                 if ($connection->connect_errno) {
-                     printf("Connection failed: %s\n", $connection->connect_error);
-                     exit();
-                 }
-
-                //Para eliminar
+                //Para eliminar, seleccionamos todos los campos con una consulta
                 if ($result = $connection->query("SELECT * FROM canciones;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuesyro usuarios
-                    // y esa informacion la almacenamos en result
+                // mostramos todos los datos de nuestros usuarios y esa informacion la almacenamos en result
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->id_cancion."</td>";

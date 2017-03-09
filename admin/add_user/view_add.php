@@ -83,16 +83,15 @@
                             header("Location:../");
                     }else{
                             $connection = new mysqli("localhost", "root", "", "proyectophp");
-                            //TESTING IF THE CONNECTION WAS RIGHT
+                            //Comprobamos que la conexion se ha realizado corectamente
                             if ($connection->connect_errno) {
                                 printf("Connection failed: %s\n", $connection->connect_error);
                                 exit();
                             }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
                 
 
-            //para que el admin pueda crear un usuario
+            //para que el admin pueda crear un usuario, cogemos por el nombre ya que por este id navega el usuario o admin por la pagina
 
             if (!isset($_POST["nombre"])) : ?>                   
 
@@ -108,7 +107,13 @@
 
                 <?php else: ?>
                 <?php 
-                $consulta= "INSERT INTO usuarios            VALUES(NULL,'".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."',md5('".$_POST['pass']."'),'usuario')";
+                // hacemos la insercion de los datos a través de un insert 
+                $nombre=$_POST['nombre'];
+                $ape=$_POST['apellido'];
+                $email=$_POST['email'];
+                $pass=$_POST['pass'];
+                
+                $consulta= "INSERT INTO usuarios            VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
                     $result = $connection->query($consulta);
                         
                     if (!$result) {

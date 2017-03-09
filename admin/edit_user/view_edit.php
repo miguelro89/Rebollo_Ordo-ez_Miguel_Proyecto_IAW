@@ -76,10 +76,10 @@
                 <?php
 
                     session_start();
-
+                    //si el rol es distinto a admin me manda al index
                     if($_SESSION["rol"] != "admin") {
-
-                    header ("Location: ../../index.php");
+                        header ("Location: ../../index.php");
+                    //si no me crea la conexion   
                     } else {
                         
                         $connection = new mysqli("localhost", "root", "", "proyectophp");
@@ -108,13 +108,13 @@
 
 
 
-                //Para eliminar
+                //hacemos la consulta para que me muestre todos los usuarios
                 if ($result = $connection->query("SELECT * FROM usuarios;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuesyro usuarios
+                // mostramos todos los datos de nuestros usuarios
                     // y esa informacion la almacenamos en result
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
@@ -124,7 +124,7 @@
                         echo "<td>".$obj->correo_electronico."</td>";
                         echo "<td>".$obj->password."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='editusu.php?id=$obj->cod_usuario'>
+                          <a href='edi_user.php?id=$obj->cod_usuario'>
                             <img src='../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";

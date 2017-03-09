@@ -29,6 +29,15 @@
      header("Location:../");
     }else{
         $connection = new mysqli("localhost", "root", "", "proyectophp");
+            $id=$_GET['id'];
+        $consulta="SELECT * FROM usuarios WHERE cod_usuario=$id";
+        $result= $connection -> query($consulta);
+        
+        if(!$result){
+            echo "error al obtener datos del usuario";
+        }else{
+             $ver_datos = $result->fetch_object();
+        }
         //TESTING IF THE CONNECTION WAS RIGHT
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
@@ -41,23 +50,21 @@
     <?php if(!isset($_POST['nombre'])) : ?>
         <form method="post">
              <br>
-                 <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                 <span>Apellido: </span><input type="text" name="apellido"><br/><br/>
-                 <span>Correo electronico: </span><input type="email" name="email"><br/><br/>
-                 <span>Contraseña: </span><input type="password" name="pass"><br/><br/>                      
+                 <span>Nombre: </span><input type="text" name="nombre" value="<?php echo $ver_datos->nombre?>"><br/><br/>
+                 <span>Apellido: </span><input type="text" name="apellido" value="<?php echo $ver_datos->apellidos?>"><br/><br/>
+                 <span>Correo electronico: </span><input type="email" name="email" value="<?php echo $ver_datos->correo_electronico?>"><br/><br/>                   
                  <input class="btn btn-primary btn-xl page-scroll" name="submit" type="submit" >
         </form>
         
     <?php else : ?>
     <?php
-        $id=$_GET['id'];    
+     
+        //Cada campo corresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
         $nombre=$_POST['nombre'];
         $ape=$_POST['apellido'];
         $email=$_POST['email'];
-        $pass=$_POST['pass'];
-      
-    //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
-        $consulta ="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$email', password='$pass' WHERE cod_usuario=$id";
+        //con el update modificamos los campos y al tenerlos en variables nuevas no hace falta pasarlas por post ya que lo hemos hecho premiamente
+        $consulta ="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$email' WHERE cod_usuario=$id";
         $modificar = $connection->query($consulta);
         //para saber si la consulta es buena o mala
         if ($modificar==false) {
@@ -71,7 +78,7 @@
   
 <br></br>
     <a href="view_edit.php">Volver</a>
-    <br></br>
+<br></br>
     <!-- jQuery -->
     <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
 
@@ -89,3 +96,6 @@
 </body>
 
 </html>  
+
+
+      

@@ -45,33 +45,33 @@
 
 <?php
 
-  //Open the session
+  //Abrimos la sesion, si es distinta de admin me expulsa
   session_start();
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
     }else{
         $connection = new mysqli("localhost", "root", "", "proyectophp");
-        //TESTING IF THE CONNECTION WAS RIGHT
+        //Comprobamos que la consulta es correcta
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
     }
 
-  //Already logged
+  //Una vez logueado, si existe la variable id cogemos la id.
   if (isset($_GET["id"])) {
 
     $id=$_GET["id"];  
     
     echo "<br></br>";
       
-    //BUILDING THE DELETE  QUERY
+    //Creamos la consulta que nos permite borrar un usuario
     $borrar = $connection->query("DELETE FROM canciones
       WHERE id_cancion=$id");
 
 
-        //No rows returned
+        //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
           echo "No se ha eliminado ninguna cancion";
         } else {
@@ -80,6 +80,7 @@
         }
 
   } else {
+      //En caso contrario de que no exista la variable id me dara error de la consulta
       echo "Fallo en la conexion";
   }
 

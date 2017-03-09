@@ -29,6 +29,15 @@
      header("Location:../");
     }else{
         $connection = new mysqli("localhost", "root", "", "proyectophp");
+           $id=$_GET['id'];
+        $consulta="SELECT * FROM canciones WHERE id_cancion=$id";
+        $result= $connection -> query($consulta);
+        
+        if(!$result){
+            echo "error al obtener datos de la cancion";
+        }else{
+             $ver_datos = $result->fetch_object();
+        }
         //TESTING IF THE CONNECTION WAS RIGHT
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
@@ -42,16 +51,17 @@
     <?php if(!isset($_POST['nombre'])) : ?>
         <form method="post">
              <br>
-                 <span>Nombre_cancion: </span><input type="text" name="nombre"><br/><br/>
-                 <span>Autores: </span><input type="text" name="autores"><br/><br/>
-                 <span>Año_publicacion: </span><input type="text" name="ao"><br/><br/>
-                 <span>Id_genero: </span><input type="text" name="genero"><br/><br/>
-                 <span>Enlace_youtube: </span><input type="text" name="enlace"><br/><br/>       
+                 <span>Nombre_cancion: </span><input type="text" name="nombre" value="<?php echo $ver_datos->nombre_cancion?>"><br/><br/>
+                 <span>Autores: </span><input type="text" name="autores" value="<?php echo $ver_datos->autores?>"><br/><br/>
+                 <span>Año_publicacion: </span><input type="text" name="ao" value="<?php echo $ver_datos->ao_publicacion?>"><br/><br/>
+                 <span>Id_genero: </span><input type="text" name="genero" value="<?php echo $ver_datos->id_genero?>"><br/><br/>
+                 <span>Enlace_youtube: </span><input type="text" name="enlace" value="<?php echo $ver_datos->enlace_youtube?>"><br/><br/>       
                  <input class="btn btn-primary btn-xl page-scroll" name="submit" type="submit" >
         </form>
         
     <?php else : ?>
     <?php
+     //Cada campo coresponde al propio de la BD, por post le pasamos el nombre que le hemos dado en el formulario
         $id=$_GET['id'];
         $nomb=$_POST['nombre'];
         $autor=$_POST['autores'];
@@ -59,13 +69,14 @@
         $genero=$_POST['genero'];
         $enlace=$_POST['enlace'];
       
-    //BUILDING THE DELETE  QUERY
-        $consulta="update canciones set nombre_cancion='$nomb',  autores='$autor', ao_publicacion='$ano', id_genero='$genero',enlace_youtube='$genero' where id_cancion=$id";
+    //con el update modificamos los campos y al tenerlos en variables nuevas no hace falta pasarlas por post ya que lo hemos hecho premiamente
+        $consulta="update canciones set nombre_cancion='$nomb',  autores='$autor', ao_publicacion='$ano', id_genero='$genero',enlace_youtube='$enlace' where id_cancion=$id";
         $borrar = $connection->query($consulta);
 
 
         //para saber si la consulta es buena o mala
         if ($borrar==true) {
+            echo "<br></br>";
             echo "La cancion se ha modificado correctamente";
         } else {
             echo "No se ha modificado ninguna cancion";

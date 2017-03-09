@@ -80,7 +80,18 @@
                     if ($_SESSION["rol"] != "usuario") {
                         header('Location: ../index.html');
                     } else {
-                        $connection = new mysqli("localhost", "root", "", "proyectophp");
+                        $connection = new mysqli("localhost", "root", "", "proyectophp"); 
+                        //Metemos en una variable, el nombre a través del $_session
+                        $id_usu=$_SESSION['username'];
+                        //hacemos la consulta comparando los nombres de la BD con nuestro usuario logueado
+                            $consulta="SELECT * FROM usuarios WHERE nombre='$id_usu'";
+                            $result= $connection -> query($consulta);
+                        //si la consulta no se ha realizado correctamente nos dara un mensaje de error, en caso contrario guardaremos todos los datos en una variable
+                            if(!$result){
+                                echo "error al obtener datos del usuario";
+                            }else{
+                                $ver_datos = $result->fetch_object();
+                            }
                          //TESTING IF THE CONNECTION WAS RIGHT
                         if ($connection->connect_errno) {
                             printf("Connection failed: %s\n", $connection->connect_error);
@@ -94,10 +105,10 @@
                 if (!isset($_POST["nombre"])) :?> 
                     <form method="post">
                         <br>
-                            <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
-                            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
-                            <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
+                            <span>Nombre: </span><input type="text" name="nombre" value="<?php echo $ver_datos->nombre;?>"><br/><br/>
+                            <span>Apellidos: </span><input type="text" name="apellido" value="<?php echo $ver_datos->apellidos?>"><br/><br/>
+                            <span>Correo electronico: </span><input type="email" name="email" value="<?php echo $ver_datos->correo_electronico?>"><br/><br/>
+                            <span>Contraseña: </span><input type="password" name="pass" value="<?php echo $ver_datos->password?>"><br/><br/>   
                             <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
                     </form>
 
@@ -135,12 +146,15 @@
     
 
             ?>
-              <?php endif ?>         
+              <?php endif ?>   
+               
+<br></br>
+    <a href="index.html">Volver</a>
+<br></br>      
                 
             </div>
         </div>
     </header>   
-
    
 
     <!-- jQuery -->
