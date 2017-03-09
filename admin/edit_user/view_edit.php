@@ -124,7 +124,7 @@
                         echo "<td>".$obj->correo_electronico."</td>";
                         echo "<td>".$obj->password."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='edi_user.php?id=$obj->cod_usuario'>
+                          <a href='editusu.php?id=$obj->cod_usuario'>
                             <img src='../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";

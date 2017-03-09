@@ -51,7 +51,14 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="../usuario/index.html">Volver</a>
+                    <?php
+                        session_start();
+                        if ($_SESSION["rol"]!='admin') {
+                            echo "<a href='../usuario/index.html'>Volver</a>";
+                        } else {
+                            echo "<a href='../admin/index.php'>volver</a>";
+                        }
+                    ?>
                     </li>
                     <li class="page-scroll">
                         <a href="../logueo/logout.php">Cerrar Sesion</a>
