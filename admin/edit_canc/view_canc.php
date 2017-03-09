@@ -74,14 +74,21 @@
                 <h2 id="homeHeading">Modificar una cancion</h2>
                 <hr>
                 <?php
-
+                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
                     session_start();
-
+                    
                     if($_SESSION["rol"] != "admin") {
 
-                    header ("Location: ../../index.php");
+                        header ("Location: ../../index.php");
+                    //en caso contrario me crea la conexion
+                    } else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
                 
                 ?>
 
@@ -95,16 +102,6 @@
                     </tr>
 
                 <?php
-
-
-
-                $connection = new mysqli("localhost", "root", "", "proyectophp");
-                //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-
-                 if ($connection->connect_errno) {
-                     printf("Connection failed: %s\n", $connection->connect_error);
-                     exit();
-                 }
 
                 //Para eliminar
                 if ($result = $connection->query("SELECT * FROM canciones;")) {

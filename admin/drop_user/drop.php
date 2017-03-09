@@ -45,40 +45,42 @@
 
 <?php
 
-  //Open the session
+  //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
   session_start();
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
+  //en caso contrario me crea la conexion
     }else{
         $connection = new mysqli("localhost", "root", "", "proyectophp");
-        //TESTING IF THE CONNECTION WAS RIGHT
+        //Comprobamos que se ha realizado la conexion
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
     }
 
-  //Already logged
+  //cogemos por get el campo id del archivo anterior para poder borrar al usuario
   if (isset($_GET["id"])) {
 
     $id=$_GET["id"];  
     
     echo "<br></br>";
       
-    //BUILDING THE DELETE  QUERY
+    //Construimos la consulta que borra al usuario
     $borrar = $connection->query("DELETE FROM usuarios
       WHERE cod_usuario=$id");
 
 
-        //No rows returned
+        //Si la consulta no se ha hecho, me dara mensaje de error
         if ($borrar==false) {
           echo "No se ha eliminado ningun usuario";
+        // en caso contrario, nos dira que se ha eliminado
         } else {
 
           echo "El usuario se ha eliminado correctamente";
         }
-
+  //en caso que no exista ese id, habrá fallo en la conexion
   } else {
       echo "Fallo en la conexion";
   }

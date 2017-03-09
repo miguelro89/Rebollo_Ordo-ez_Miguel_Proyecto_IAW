@@ -91,7 +91,7 @@
                     }
                 
 
-            //para que el admin pueda crear un usuario, cogemos por el nombre ya que por este id navega el usuario o admin por la pagina
+            //para que el admin pueda crear un usuario, cogemos el dato del nombre para despues meterlo en el formulario
 
             if (!isset($_POST["nombre"])) : ?>                   
 
@@ -107,7 +107,7 @@
 
                 <?php else: ?>
                 <?php 
-                // hacemos la insercion de los datos a través de un insert 
+                // Pasamos a variables cada una valor recogido en post y hacemos la insercion de los datos a través de un insert 
                 $nombre=$_POST['nombre'];
                 $ape=$_POST['apellido'];
                 $email=$_POST['email'];
@@ -115,15 +115,15 @@
                 
                 $consulta= "INSERT INTO usuarios            VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
                     $result = $connection->query($consulta);
-                        
+                    //si no es correcta la insercion de los datos nos muestra un mensaje de error  
                     if (!$result) {
 
-                            echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
-                            echo "<br/><br/><br/>";
+                        echo "<br/><br/><br/><br/><br/><br/>";
+                        echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                        echo "<br/><br/><br/>";
 
-
-                       } else {
+                    //que si ha sido correcta la insercion, no muestra otro mensaje
+                    } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
                        echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";

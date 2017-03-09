@@ -74,12 +74,13 @@
                 <h2 id="homeHeading">Borrar usuario</h2>
                 <hr>
                 <?php
-
+                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
                     session_start();
 
                     if($_SESSION["rol"] != "admin") {
 
                     header ("Location: ../../index.php");
+                    //en caso contrario me crea la conexion
                     } else{
                             $connection = new mysqli("localhost", "root", "", "proyectophp");
                             //TESTING IF THE CONNECTION WAS RIGHT
@@ -88,7 +89,6 @@
                                 exit();
                             }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
                 
                 ?>
 
@@ -104,14 +104,13 @@
                 <?php
 
 
-                //Para eliminar
+                //Para eliminar, seleccionamos todos los campos con una consulta
                 if ($result = $connection->query("SELECT * FROM usuarios;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuesyro usuarios
-                    // y esa informacion la almacenamos en result
+                // mostramos todos los datos a traves del bucle de nuestros usuarios y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->cod_usuario."</td>";

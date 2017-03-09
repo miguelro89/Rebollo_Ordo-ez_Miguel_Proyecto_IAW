@@ -112,7 +112,7 @@
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuestros usuarios y esa informacion la almacenamos en result
+                // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->id_cancion."</td>";

@@ -51,6 +51,7 @@
        session_destroy();
      header("Location:../");
     }else{
+  //si la sesion es la de admin, me crea la conexion
         $connection = new mysqli("localhost", "root", "", "proyectophp");
         //Comprobamos que la consulta es correcta
         if ($connection->connect_errno) {
@@ -89,7 +90,7 @@
         </div>
     </header> 
     <br></br> 
-    <a href="../view_canc.php">Volver</a>
+    <a href="view_canc.php">Volver</a>
     <br></br>
        
         <!-- jQuery -->
