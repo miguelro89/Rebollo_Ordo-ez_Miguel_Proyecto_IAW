@@ -101,14 +101,13 @@
                 <?php
 
 
-                //Para eliminar
+                //Selecciono los datos de la tabla peticiones 
                 if ($result = $connection->query("SELECT * FROM peticiones;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuesyro usuarios
-                    // y esa informacion la almacenamos en result
+               // mostramos todos los datos a traves del bucle de las peticiones 
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->nombre_cancion."</td>";

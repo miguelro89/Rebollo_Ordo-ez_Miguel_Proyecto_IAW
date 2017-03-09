@@ -92,7 +92,7 @@
                     //Si el rol "NO" es admin redirigir a index.php
                 
 
-            //para que el admin pueda insertar una cancion
+            //para que el admin pueda insertar una cancion, cogemos por post un campo del formulario
 
             if (!isset($_POST["nombre"])) : ?>                   
 
@@ -109,30 +109,29 @@
 
                 <?php else: ?>
                 <?php 
-                
+                //insertamos en variables los valores del formulario, para hacer despues la insercion de los datos
                     $nombre=$_POST['nombre'];
                     $autor=$_POST['autor'];
                     $ano=$_POST['ao'];
                     $genero=$_POST['genero'];
                     $enlace=$_POST['enlace'];
                 
+                //creamos la variable consulta y hacemos la consulta con las variables definidas anteriormente
                 $consulta= "INSERT INTO canciones VALUES(NULL,'$nombre','$autor','$ano','$genero','$enlace')";
                     $result = $connection->query($consulta);
-                        
+                    //si la consulta no se ha realizado, no muestra un error   
                     if (!$result) {
-
                             echo "<br/><br/><br/><br/><br/><br/>";
                             echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
                             echo "<br/><br/><br/>";
 
-
-                       } else {
-
-                       echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>La cancion ha sido añadida correctamente</h3>";
-                       echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
-                       echo "<br/><br/>";
+                    //en caso contrario
+                    } else {
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h3 id='homeHeading'>La cancion ha sido añadida correctamente</h3>";
+                            echo "<br/><br/>";
+                            echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
+                            echo "<br/><br/>";
                        }
     
                     ?>

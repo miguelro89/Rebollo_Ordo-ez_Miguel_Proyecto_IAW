@@ -50,7 +50,7 @@
        
     <?php if(!isset($_POST['nombre'])) : ?>
         <form method="post">
-             <br>
+             <br></br>
                  <span>Nombre_cancion: </span><input type="text" name="nombre" value="<?php echo $ver_datos->nombre_cancion?>"><br/><br/>
                  <span>Autores: </span><input type="text" name="autores" value="<?php echo $ver_datos->autores?>"><br/><br/>
                  <span>Año_publicacion: </span><input type="text" name="ao" value="<?php echo $ver_datos->ao_publicacion?>"><br/><br/>

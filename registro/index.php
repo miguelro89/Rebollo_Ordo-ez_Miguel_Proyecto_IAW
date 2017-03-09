@@ -87,19 +87,6 @@
 
   if (!isset($_POST["nombre"])) : ?>
       <form method="post">
-          <?php
-            //CREATING THE CONNECTION
-            $connection = new mysqli("localhost", "root", "", "proyectophp");
-            //TESTING IF THE CONNECTION WAS RIGHT
-            if ($connection->connect_errno) {
-               printf("Connection failed: %s\n", $connection->connect_error);
-             exit();
-           }
-           $result = $connection->query("SELECT * FROM usuarios;");
-          ?>
-
-
-          <br>
             <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
             <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
             <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
@@ -112,9 +99,9 @@
 
     <?php
 
-          //CREATING THE CONNECTION
+          //Creamos de nuevo la conexion, para poder añadir usuarios
           $connection = new mysqli("localhost", "root", "", "proyectophp");
-         //TESTING IF THE CONNECTION WAS RIGHT
+         //comprobamos que no hay errores en la conexion
          if ($connection->connect_errno) {
            printf("Connection failed: %s\n", $connection->connect_error);
            exit();

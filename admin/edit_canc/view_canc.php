@@ -83,7 +83,7 @@
                     //en caso contrario me crea la conexion
                     } else{
                             $connection = new mysqli("localhost", "root", "", "proyectophp");
-                            //TESTING IF THE CONNECTION WAS RIGHT
+                            //Vemos si da fallos en la conexion
                             if ($connection->connect_errno) {
                                 printf("Connection failed: %s\n", $connection->connect_error);
                                 exit();
@@ -91,7 +91,6 @@
                     }
                 
                 ?>
-
                 <table border="1">
                     <tr>
                      <th>Nombre cancion</th>
@@ -103,14 +102,13 @@
 
                 <?php
 
-                //Para eliminar
+                //hacemos la consulta
                 if ($result = $connection->query("SELECT * FROM canciones;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuesyro usuarios
-                    // y esa informacion la almacenamos en result
+                // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->nombre_cancion."</td>";
