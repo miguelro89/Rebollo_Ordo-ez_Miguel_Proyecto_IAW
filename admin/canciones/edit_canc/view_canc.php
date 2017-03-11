@@ -9,22 +9,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mostrar usuarios</title>
+    <title>Mostrar canciones</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="../../estilo/css/creative.min.css" rel="stylesheet">
+    <link href="../../../estilo/css/creative.min.css" rel="stylesheet">
     
     <style>
       span {
@@ -52,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../panel.php">Volver atras</a>
+                        <a class="page-scroll" href="../canciones.php">Volver atras</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="../../logueo/logout.php">Cerrar sesion</a>
+                        <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
                     </li>
                     
                     <li>
@@ -71,42 +71,38 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar cancion</h2>
+                <h2 id="homeHeading">Modificar una cancion</h2>
                 <hr>
                 <?php
-                    //abrimos sesion
+                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
                     session_start();
-                    //si el rol es distinto de admin, me redirige al index
+                    
                     if($_SESSION["rol"] != "admin") {
-                        
-                    header ("Location: ../../index.php");
-                    //Si el rol es admin me crea la conexion
-                    } else {
-                         $connection = new mysqli("localhost", "root", "", "proyectophp");
-                       //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+
+                        header ("Location: ../../index.php");
+                    //en caso contrario me crea la conexion
+                    } else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //Vemos si da fallos en la conexion
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
-                   
                 
                 ?>
-
                 <table border="1">
                     <tr>
-                     <th>id cancion</th>
-                     <th>nombre cancion</th>
-                     <th>autor/es</th>
-                     <th>año publicacion</th>
-                     <th>genero</th>
-                     <th>enlace</th>
+                     <th>Nombre cancion</th>
+                     <th>Autores</th>
+                     <th>Año publicacion</th>
+                     <th>Genero</th>
+                     <th>Enlace youtube</th>
                     </tr>
 
                 <?php
 
-
-                //Para eliminar, seleccionamos todos los campos con una consulta
+                //hacemos la consulta
                 if ($result = $connection->query("SELECT * FROM canciones;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
@@ -115,19 +111,18 @@
                 // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
-                        echo "<td>".$obj->id_cancion."</td>";
                         echo "<td>".$obj->nombre_cancion."</td>";
                         echo "<td>".$obj->autores."</td>";
                         echo "<td>".$obj->ao_publicacion."</td>";
-                        echo "<td>".$obj->id_genero."</td>";
+                        echo "<td>".$obj->id_genero."</td>";  
                         echo "<td>".$obj->enlace_youtube."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='drop_canc.php?id=$obj->id_cancion'>
-                            <img src='../../imgs/borrar.jpeg' width='30%';/>
+                          <a href='edi_can.php?id=$obj->id_cancion'>
+                            <img src='../../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";
-                }
+          }
           
           $result->close(); // Cierramos la consulta
           unset($obj);
@@ -143,10 +138,10 @@
    
 
     <!-- jQuery -->
-    <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -154,7 +149,7 @@
     <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../../estilo/js/creative.min.js"></script>
+    <script src="../../../estilo/js/creative.min.js"></script>
 
 </body>
 
