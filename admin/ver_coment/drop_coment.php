@@ -40,48 +40,48 @@
 <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar un usuario</h2>
+                <h2 id="homeHeading">Borrar una comentario</h2>
                 <hr>
 
 <?php
 
-  //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
+  //Abrimos la sesion, si es distinta de admin me expulsa
   session_start();
     if ($_SESSION["rol"]!='admin'){
        session_destroy();
      header("Location:../");
-  //en caso contrario me crea la conexion
     }else{
+  //si la sesion es la de admin, me crea la conexion
         $connection = new mysqli("localhost", "root", "", "proyectophp");
-        //Comprobamos que se ha realizado la conexion
+        //Comprobamos que la consulta es correcta
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
     }
 
-  //cogemos por get el campo id del archivo anterior para poder borrar al usuario
+  //Una vez logueado, si existe la variable id cogemos la id.
   if (isset($_GET["id"])) {
 
     $id=$_GET["id"];  
     
     echo "<br></br>";
       
-    //Construimos la consulta que borra al usuario
-    $borrar = $connection->query("DELETE FROM usuarios
-      WHERE cod_usuario=$id");
+    //Creamos la consulta que nos permite borrar un usuario
+    $borrar = $connection->query("DELETE FROM comentarios
+      WHERE id_comentario=$id");
 
 
-        //Si la consulta no se ha hecho, me dara mensaje de error
+        //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
-          echo "No se ha eliminado ningun usuario";
-        // en caso contrario, nos dira que se ha eliminado
+          echo "No se ha eliminado ningun comentario";
         } else {
 
-          echo "El usuario se ha eliminado correctamente";
+          echo "El comentario se ha eliminado";
         }
-  //en caso que no exista ese id, habrá fallo en la conexion
+
   } else {
+      //En caso contrario de que no exista la variable id me dara error de la consulta
       echo "Fallo en la conexion";
   }
 
@@ -90,7 +90,7 @@
         </div>
     </header> 
     <br></br> 
-    <a href="view_user.php">Volver</a>
+    <a href="coments.php">Volver</a>
     <br></br>
        
         <!-- jQuery -->
@@ -110,4 +110,3 @@
 </body>
 
 </html>
-        

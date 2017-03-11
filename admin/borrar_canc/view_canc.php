@@ -127,7 +127,7 @@
                           </a>
                         </form></td>";
                     echo "</tr>";
-          }
+                }
           
           $result->close(); // Cierramos la consulta
           unset($obj);

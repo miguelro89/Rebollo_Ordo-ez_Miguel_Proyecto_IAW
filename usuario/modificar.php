@@ -124,6 +124,7 @@
 
 
                         $consulta="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$correo', password='$nuev_contra' where nombre='$usuario' and password='$contra'";
+                
 
 
                         $mod_usu = $connection->query($consulta);

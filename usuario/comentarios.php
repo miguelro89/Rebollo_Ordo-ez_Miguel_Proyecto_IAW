@@ -28,14 +28,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-        text-align: left;
-      }
-    </style>
 
 </head>
 
@@ -95,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Peticion de canciones</h2>
+                    <h2>Mejora tu web</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -121,19 +113,21 @@
             if (!isset($_POST["nombre"])) : ?>                   
 
                     <form method="post">
-
+                      <legend>Inserte comentario</legend>
+                      <fieldset>
                         <br>
-                            <span>Nombre cancion: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Autor/es: </span><input type="text" name="autor"><br/><br/>
+                        <label>Nombre de usuario: </label><input type="text" name="nombre"><br/><br/>
+                        <label>Comentario: </label><textarea rows="4" cols="50" input type="text" name="comentario"></textarea><br/><br/>
                             <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
+                      </fieldset>
                     </form>
 
                 <?php else: ?>
                 <?php 
                 $nomb=$_POST['nombre'];
-                $autor=$_POST['autor'];
+                $coment=$_POST['comentario'];
             
-                $consulta= "INSERT INTO peticiones VALUES('$nomb','$autor')";
+                $consulta= "INSERT INTO comentarios VALUES('null','$nomb','$coment')";
                     $result = $connection->query($consulta);
                         
                     if (!$result) {
@@ -146,7 +140,7 @@
                        } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>La peticion ha sido un exito</h3>";
+                       echo "<h3 id='homeHeading'>El comentario se ha insertado correctamente</h3>";
                        echo "<br/><br/>";
                        echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
                        echo "<br/><br/>";
@@ -155,14 +149,15 @@
                     ?>
                 <?php endif ?>
         </div>
-        <br></br>
+         <br></br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h4>El administrador se conecta todos los domingos a las <font color="red">21:00</font> para ver las peticiones de canciones de la semana, y acto seguido empieza a buscarlas y a introducirlas en la página web, para que las podáis disfrutar antes del lunes a las <font color="red">8:00</font></h4>
+                    <h4>El administrador asiduamente ve los comentarios escritos por vosotros e intenta en la medida de lo posible mejorar la página web, un saludo a todos</h4>
                 </div>
             </div>
         </div>
+        <br></br>
     </section>
     <!-- Contact Section -->
     

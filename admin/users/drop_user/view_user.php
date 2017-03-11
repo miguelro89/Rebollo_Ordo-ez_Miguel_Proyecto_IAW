@@ -12,19 +12,19 @@
     <title>Mostrar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="../../estilo/css/creative.min.css" rel="stylesheet">
+    <link href="../../../estilo/css/creative.min.css" rel="stylesheet">
     
     <style>
       span {
@@ -52,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../panel.php">Volver atras</a>
+                        <a class="page-scroll" href="../../panel.php">Volver atras</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="../../logueo/logout.php">Cerrar sesion</a>
+                        <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
                     </li>
                     
                     <li>
@@ -71,26 +71,24 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Mostrar usuarios</h2>
+                <h2 id="homeHeading">Borrar usuario</h2>
                 <hr>
                 <?php
-
+                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
                     session_start();
-                    //si el rol es distinto a admin me manda al index
-                    if($_SESSION["rol"] != "admin") {
-                        header ("Location: ../../index.php");
-                    //si no me crea la conexion   
-                    } else {
-                        
-                        $connection = new mysqli("localhost", "root", "", "proyectophp");
-                            //Conexion a la base de datos (localhost, usuario, contraseña, bd).
 
-                        if ($connection->connect_errno) {
+                    if($_SESSION["rol"] != "admin") {
+                            session_destroy();
+                            header("Location:../");
+                    //en caso contrario me crea la conexion
+                    } else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
                                 printf("Connection failed: %s\n", $connection->connect_error);
                                 exit();
-                        }
+                            }
                     }
-                    //Si el rol "NO" es admin redirigir a index.php
                 
                 ?>
 
@@ -106,26 +104,23 @@
                 <?php
 
 
-
-
-                //hacemos la consulta para que me muestre todos los usuarios
+                //Para eliminar, seleccionamos todos los campos con una consulta
                 if ($result = $connection->query("SELECT * FROM usuarios;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos de nuestros usuarios
-                    // y esa informacion la almacenamos en result
+                // mostramos todos los datos a traves del bucle de nuestros usuarios y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->cod_usuario."</td>";
                         echo "<td>".$obj->nombre."</td>";
                         echo "<td>".$obj->apellidos."</td>";
-                        echo "<td>".$obj->correo_electronico."</td>";
-                        echo "<td>".$obj->password."</td>";
+                        echo "<td>".$obj->correo_electronico."</td>";      
+                        echo "<td>".$obj->password."</td>"; 
                         echo "<td><form id='form0' method='get'>
-                          <a href='edi_user.php?id=$obj->cod_usuario'>
-                            <img src='../../imgs/editar.png' width='30%';/>
+                          <a href='drop.php?id=$obj->cod_usuario'>
+                            <img src='../../../imgs/borrar.jpeg' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";
@@ -142,22 +137,21 @@
                 </div>
         </div>
     </header>   
-
    
 
     <!-- jQuery -->
-    <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="../../estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="../../estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../../estilo/js/creative.min.js"></script>
+    <script src="../../../estilo/js/creative.min.js"></script>
 
 </body>
 

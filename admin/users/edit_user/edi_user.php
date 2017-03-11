@@ -12,11 +12,11 @@
     <title>Modificar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
     <br></br>
 <body>
@@ -80,10 +80,10 @@
     <a href="view_edit.php">Volver</a>
 <br></br>
     <!-- jQuery -->
-    <script src="../../estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -91,7 +91,7 @@
     <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../../estilo/js/creative.min.js"></script>
+    <script src="../../../estilo/js/creative.min.js"></script>
 
 </body>
 

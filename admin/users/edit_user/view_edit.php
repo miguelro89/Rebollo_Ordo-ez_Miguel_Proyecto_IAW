@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Crear usuario</title>
+    <title>Mostrar usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../panel.php">Volver atras</a>
+                        <a class="page-scroll" href="../../panel.php">Volver atras</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="../../logueo/logout.php">Cerrar sesion</a>
+                        <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
                     </li>
                     
                     <li>
@@ -71,72 +71,76 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Añadir un usuario</h2>
+                <h2 id="homeHeading">Mostrar usuarios</h2>
                 <hr>
-                
                 <?php
 
                     session_start();
-                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
-                    if ($_SESSION["rol"]!='admin'){
-                            session_destroy();
+                    //si el rol es distinto a admin me manda al index
+                    if($_SESSION["rol"] != "admin") {
+                        session_destroy();
                             header("Location:../");
-                    }else{
-                            $connection = new mysqli("localhost", "root", "", "proyectophp");
-                            //Comprobamos que la conexion se ha realizado corectamente
-                            if ($connection->connect_errno) {
+                    //si no me crea la conexion   
+                    } else {
+                        
+                        $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //Conexion a la base de datos (localhost, usuario, contraseña, bd).
+
+                        if ($connection->connect_errno) {
                                 printf("Connection failed: %s\n", $connection->connect_error);
                                 exit();
-                            }
+                        }
                     }
+                    //Si el rol "NO" es admin redirigir a index.php
                 
+                ?>
 
-            //para que el admin pueda crear un usuario, cogemos el dato del nombre para despues meterlo en el formulario
+                <table border="1">
+                    <tr>
+                     <th>Codigo usuario</th>
+                     <th>Nombre</th>
+                     <th>Apellidos</th>
+                     <th>Correo electronico</th>
+                     <th>Contraseña</th>
+                    </tr>
 
-            if (!isset($_POST["nombre"])) : ?>                   
+                <?php
 
-                    <form method="post">
 
-                        <br>
-                            <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
-                            <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
-                            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
-                            <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
-                            <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
-                    </form>
 
-                <?php else: ?>
-                <?php 
-                // Pasamos a variables cada una valor recogido en post y hacemos la insercion de los datos a través de un insert 
-                $nombre=$_POST['nombre'];
-                $ape=$_POST['apellido'];
-                $email=$_POST['email'];
-                $pass=$_POST['pass'];
+
+                //hacemos la consulta para que me muestre todos los usuarios
+                if ($result = $connection->query("SELECT * FROM usuarios;")) {
+                } else {
+                // Si no hace la consulta es error, por lo que muestro el error
+                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                }
+                // mostramos todos los datos de nuestros usuarios
+                    // y esa informacion la almacenamos en result
+                while($obj = $result->fetch_object()) {
+                    echo "<tr>";
+                        echo "<td>".$obj->cod_usuario."</td>";
+                        echo "<td>".$obj->nombre."</td>";
+                        echo "<td>".$obj->apellidos."</td>";
+                        echo "<td>".$obj->correo_electronico."</td>";
+                        echo "<td>".$obj->password."</td>";
+                        echo "<td><form id='form0' method='get'>
+                          <a href='edi_user.php?id=$obj->cod_usuario'>
+                            <img src='../../../imgs/editar.png' width='30%';/>
+                          </a>
+                        </form></td>";
+                    echo "</tr>";
+          }
+          
+          $result->close(); // Cierramos la consulta
+          unset($obj);
+          unset($connection); // Cierramos la conexión
+          ?>
+                  
                 
-                $consulta= "INSERT INTO usuarios            VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
-                    $result = $connection->query($consulta);
-                    //si no es correcta la insercion de los datos nos muestra un mensaje de error  
-                    if (!$result) {
-
-                        echo "<br/><br/><br/><br/><br/><br/>";
-                        echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
-                        echo "<br/><br/><br/>";
-
-                    //que si ha sido correcta la insercion, no muestra otro mensaje
-                    } else {
-
-                       echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
-                       echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../panel.php'>volver</a></h3>";
-                       echo "<br/><br/>";
-                       }
-    
-                    ?>
-                <?php endif ?>
+                </table> 
                 
-                
-            </div>
+                </div>
         </div>
     </header>   
 
@@ -150,8 +154,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../../estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../../estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../../estilo/js/creative.min.js"></script>

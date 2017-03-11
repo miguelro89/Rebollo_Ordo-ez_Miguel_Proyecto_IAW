@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mostrar usuarios</title>
+    <title>Mostrar comentarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -71,16 +71,15 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar usuario</h2>
+                <h2 id="homeHeading">Ver comentarios</h2>
                 <hr>
                 <?php
-                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
+
                     session_start();
 
                     if($_SESSION["rol"] != "admin") {
 
-                    header ("Location: ../../index.php");
-                    //en caso contrario me crea la conexion
+                    header ("Location: ../../index.html");
                     } else{
                             $connection = new mysqli("localhost", "root", "", "proyectophp");
                             //TESTING IF THE CONNECTION WAS RIGHT
@@ -89,42 +88,40 @@
                                 exit();
                             }
                     }
+                    //Si el rol "NO" es admin redirigir a index.php
                 
                 ?>
 
-                <table border="1">
+                <table border="2" color="blue">
                     <tr>
-                     <th>Codigo usuario</th>
-                     <th>Nombre</th>
-                     <th>Apellidos</th>
-                     <th>Correo electronico</th>
-                     <th>Contraseña</th>
+                     <th><ID></ID></th>
+                     <th>Nombre usuario</th>
+                     <th>Comentarios</th>
+                     <th>Eliminar</th>
                     </tr>
 
                 <?php
 
 
-                //Para eliminar, seleccionamos todos los campos con una consulta
-                if ($result = $connection->query("SELECT * FROM usuarios;")) {
+                //Selecciono los datos de la tabla peticiones 
+                if ($result = $connection->query("SELECT * FROM comentarios;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                 }
-                // mostramos todos los datos a traves del bucle de nuestros usuarios y esa informacion la almacenamos en obj
+               // mostramos todos los datos a traves del bucle de las peticiones 
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
-                        echo "<td>".$obj->cod_usuario."</td>";
+                        echo "<td>".$obj->id_comentario."</td>";
                         echo "<td>".$obj->nombre."</td>";
-                        echo "<td>".$obj->apellidos."</td>";
-                        echo "<td>".$obj->correo_electronico."</td>";      
-                        echo "<td>".$obj->password."</td>"; 
+                        echo "<td>".$obj->comentario."</td>";   
                         echo "<td><form id='form0' method='get'>
-                          <a href='drop.php?id=$obj->cod_usuario'>
-                            <img src='../../imgs/borrar.jpeg' width='30%';/>
+                          <a href='drop_coment.php?id=$obj->id_comentario'>
+                            <img src='../../imgs/papelera.png' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";
-          }
+                }
           
           $result->close(); // Cierramos la consulta
           unset($obj);
