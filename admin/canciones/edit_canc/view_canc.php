@@ -93,11 +93,13 @@
                 ?>
                 <table border="1">
                     <tr>
+                     <th>Id cancion</th>
                      <th>Nombre cancion</th>
                      <th>Autores</th>
                      <th>Año publicacion</th>
                      <th>Genero</th>
                      <th>Enlace youtube</th>
+                     <th>Editar</th>
                     </tr>
 
                 <?php
@@ -111,6 +113,7 @@
                 // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
+                        echo "<td>".$obj->id_cancion."</td>";
                         echo "<td>".$obj->nombre_cancion."</td>";
                         echo "<td>".$obj->autores."</td>";
                         echo "<td>".$obj->ao_publicacion."</td>";

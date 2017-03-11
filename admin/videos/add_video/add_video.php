@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mostrar usuarios</title>
+    <title>Añadir usuario</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../canciones.php">Volver atras</a>
+                        <a class="page-scroll" href="../videos.php">Volver atras</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
@@ -71,76 +71,77 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar cancion</h2>
+                <h2 id="homeHeading">Añadir un video</h2>
                 <hr>
+                
                 <?php
-                    //abrimos sesion
+
                     session_start();
-                    //si el rol es distinto de admin, me redirige al index
-                    if($_SESSION["rol"] != "admin") {
-                         session_destroy();
+                    //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
+                    if ($_SESSION["rol"]!='admin'){
+                            session_destroy();
                             header("Location:../");
-                    //Si el rol es admin me crea la conexion
-                    } else {
-                         $connection = new mysqli("localhost", "root", "", "proyectophp");
-                       //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+                    }else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
-                   
+                    //Si el rol "NO" es admin redirigir a index.php
                 
-                ?>
 
-                <table border="1">
-                    <tr>
-                     <th>id cancion</th>
-                     <th>nombre cancion</th>
-                     <th>autor/es</th>
-                     <th>año publicacion</th>
-                     <th>genero</th>
-                     <th>enlace</th>
-                     <th>Borrar</th>
-                    </tr>
+            //para que el admin pueda insertar una cancion, cogemos por post un campo del formulario
 
-                <?php
+            if (!isset($_POST["nombre"])) : ?>                   
 
+                    <form method="post">
 
-                //Para eliminar, seleccionamos todos los campos con una consulta
-                if ($result = $connection->query("SELECT * FROM canciones;")) {
-                } else {
-                // Si no hace la consulta es error, por lo que muestro el error
-                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                }
-                // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
-                while($obj = $result->fetch_object()) {
-                    echo "<tr>";
-                        echo "<td>".$obj->id_cancion."</td>";
-                        echo "<td>".$obj->nombre_cancion."</td>";
-                        echo "<td>".$obj->autores."</td>";
-                        echo "<td>".$obj->ao_publicacion."</td>";
-                        echo "<td>".$obj->id_genero."</td>";
-                        echo "<td>".$obj->enlace_youtube."</td>";
-                        echo "<td><form id='form0' method='get'>
-                          <a href='drop_canc.php?id=$obj->id_cancion'>
-                            <img src='../../../imgs/delete.png' width='30%';/>
-                          </a>
-                        </form></td>";
-                    echo "</tr>";
-                }
-          
-          $result->close(); // Cierramos la consulta
-          unset($obj);
-          unset($connection); // Cierramos la conexión
-          ?>
-                  
+                        <br>
+                            <span>Nombre video: </span><input type="text" name="nombre"><br/><br/>
+                            <span>Deejay: </span><input type="text" name="deejay"><br/><br/>
+                            <span>Lugar: </span><input type="text" name="lugar"><br/><br/>
+                            <span>Genero: </span><input type="text" name="genero"><br/><br/>
+                            <span>Enlace: </span><input type="text" name="enlace"><br/><br/>
+                            <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
+                    </form>
+
+                <?php else: ?>
+                <?php 
+                //insertamos en variables los valores del formulario, para hacer despues la insercion de los datos
+                    $nombre=$_POST['nombre'];
+                    $deejay=$_POST['deejay'];
+                    $lugar=$_POST['lugar'];
+                    $genero=$_POST['genero'];
+                    $enlace=$_POST['enlace'];
                 
-                </table> 
+                //creamos la variable consulta y hacemos la consulta con las variables definidas anteriormente
+                $consulta= "INSERT INTO videos VALUES(NULL,'$nombre','$deejay','$lugar','$genero','$enlace')";
+                    $result = $connection->query($consulta);
+                    //si la consulta no se ha realizado, no muestra un error   
+                    if (!$result) {
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h2 id='homeHeading'>No se ha podido insertar el video</h2>";
+                            echo "<br/><br/><br/>";
+
+                    //en caso contrario
+                    } else {
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h3 id='homeHeading'>El video ha sido añadido</h3>";
+                            echo "<br/><br/>";
+                            echo "<h3 id='homeHeading'><a href='../videos.php'>volver</a></h3>";
+                            echo "<br/><br/>";
+                       }
+    
+                    ?>
+                <?php endif ?>
                 
-                </div>
+                
+            </div>
         </div>
     </header>   
+
    
 
     <!-- jQuery -->

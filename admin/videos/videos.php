@@ -98,7 +98,7 @@
                         </span>
                     </div>
                     <div class="intro-text">
-                        <a href="add_video/view_add.php">
+                        <a href="add_video/add_video.php">
                             <span class="name" id="blanco">Crear un video</span>
                         </a>
                         <hr class="star-light">

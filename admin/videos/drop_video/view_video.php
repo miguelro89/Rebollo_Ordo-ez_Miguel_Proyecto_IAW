@@ -120,10 +120,10 @@
                         echo "<td>".$obj->deejay."</td>";
                         echo "<td>".$obj->lugar."</td>";      
                         echo "<td>".$obj->genero."</td>"; 
-                        echo "<td>".$obj->enlace_video."</td>"
+                        echo "<td>".$obj->enlace_video."</td>";
                         echo "<td><form id='form0' method='get'>
                           <a href='drop.php?id=$obj->id_video'>
-                            <img src='../../../imgs/borrar.jpeg' width='30%';/>
+                            <img src='../../../imgs/delete.png' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mostrar usuarios</title>
+    <title>Mostrar videos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../canciones.php">Volver atras</a>
+                        <a class="page-scroll" href="../videos.php">Volver atras</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
@@ -71,44 +71,41 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar cancion</h2>
+                <h2 id="homeHeading">Modificar un video</h2>
                 <hr>
                 <?php
-                    //abrimos sesion
+                     //Abrimos la conexion y hacemos un if para saber si admin o no, ni no lo es nos manda a la pagina principal
                     session_start();
-                    //si el rol es distinto de admin, me redirige al index
+                    
                     if($_SESSION["rol"] != "admin") {
-                         session_destroy();
-                            header("Location:../");
-                    //Si el rol es admin me crea la conexion
-                    } else {
-                         $connection = new mysqli("localhost", "root", "", "proyectophp");
-                       //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+
+                        header ("Location: ../../index.php");
+                    //en caso contrario me crea la conexion
+                    } else{
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
+                            //Vemos si da fallos en la conexion
+                            if ($connection->connect_errno) {
+                                printf("Connection failed: %s\n", $connection->connect_error);
+                                exit();
+                            }
                     }
-                   
                 
                 ?>
-
                 <table border="1">
                     <tr>
-                     <th>id cancion</th>
-                     <th>nombre cancion</th>
-                     <th>autor/es</th>
-                     <th>año publicacion</th>
-                     <th>genero</th>
-                     <th>enlace</th>
-                     <th>Borrar</th>
+                     <th>Id video</th>
+                     <th>Nombre sesion</th>
+                     <th>Deejay</th>
+                     <th>Lugar</th>
+                     <th>Genero</th>
+                     <th>Enlace</th>
+                     <th>Editar</th>
                     </tr>
 
                 <?php
 
-
-                //Para eliminar, seleccionamos todos los campos con una consulta
-                if ($result = $connection->query("SELECT * FROM canciones;")) {
+                //hacemos la consulta
+                if ($result = $connection->query("SELECT * FROM videos;")) {
                 } else {
                 // Si no hace la consulta es error, por lo que muestro el error
                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
@@ -116,19 +113,19 @@
                 // mostramos todos los datos a traves del bucle de nuestras canciones y esa informacion la almacenamos en obj
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
-                        echo "<td>".$obj->id_cancion."</td>";
-                        echo "<td>".$obj->nombre_cancion."</td>";
-                        echo "<td>".$obj->autores."</td>";
-                        echo "<td>".$obj->ao_publicacion."</td>";
-                        echo "<td>".$obj->id_genero."</td>";
-                        echo "<td>".$obj->enlace_youtube."</td>";
+                        echo "<td>".$obj->id_video."</td>";
+                        echo "<td>".$obj->nombre_sesion."</td>";
+                        echo "<td>".$obj->deejay."</td>";
+                        echo "<td>".$obj->lugar."</td>";
+                        echo "<td>".$obj->genero."</td>";  
+                        echo "<td>".$obj->enlace_video."</td>";
                         echo "<td><form id='form0' method='get'>
-                          <a href='drop_canc.php?id=$obj->id_cancion'>
-                            <img src='../../../imgs/delete.png' width='30%';/>
+                          <a href='edi_video.php?id=$obj->id_video'>
+                            <img src='../../../imgs/delete.jpeg' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";
-                }
+          }
           
           $result->close(); // Cierramos la consulta
           unset($obj);
