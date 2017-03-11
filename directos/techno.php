@@ -102,30 +102,30 @@
                           </a>
                   </div>
                   <table border="1" class= 'table table-bordered'>
-                    <tr>
-                        <td><b>nombre cancion</b></td>
-                        <td><b>autor/es</b></td>
-                        <td><b>Año publicacion</b></td>
-                        <td><b>id genero</b></td>
-                        <td><b>enlace</b></td>
-                    </tr>
+                     <tr>
+                         <td><b>Nombre sesion</b></td>
+                         <td><b>Deejay</b></td>
+                         <td><b>Lugar</b></td>
+                         <td><b>Genero</b></td>
+                         <td><b>Enlace</b></td>
+                     </tr>
 
 
                     <?php
 
                       $conexion=mysqli_connect('localhost','root','','proyectophp');
-                      $consulta="SELECT * FROM canciones WHERE id_genero= 'techno'";
+                      $consulta="SELECT * FROM videos WHERE genero= 'techno'";
                       $result = mysqli_query($conexion, $consulta);
 
 
                       while ($fila=mysqli_fetch_array($result)) {
-                          $link=$fila['enlace_youtube'];
+                        $link=$fila['enlace_video'];
                         echo "<tr>";
-                          echo "<td>".$fila['nombre_cancion']."</td>";
-                          echo "<td>".$fila['autores']."</td>";
-                          echo "<td>".$fila['ao_publicacion']."</td>";
-                          echo "<td>".$fila['id_genero']."</td>";
-                          echo "<td><a href='$link' target='_blank'>".$fila['enlace_youtube']."</a></td>";
+                            echo "<td>".$fila['nombre_sesion']."</td>";
+                            echo "<td>".$fila['deejay']."</td>";
+                            echo "<td>".$fila['lugar']."</td>";
+                            echo "<td>".$fila['genero']."</td>";
+                            echo "<td><a href='$link' target='_blank'>".$fila['enlace_video']."</a></td>";
                         echo "</tr>";
                       }
 

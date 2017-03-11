@@ -102,7 +102,6 @@
                 </div>
                 <table border="1" class= 'table table-bordered'>
                   <tr>
-                      <td><b>id cancion</b></td>
                       <td><b>nombre cancion</b></td>
                       <td><b>autor/es</b></td>
                       <td><b>Año publicacion</b></td>
@@ -120,7 +119,6 @@
                     while ($fila=mysqli_fetch_array($result)) {
                         $link=$fila['enlace_youtube'];
                       echo "<tr>";
-                        echo "<td>".$fila['id_cancion']."</td>";
                         echo "<td>".$fila['nombre_cancion']."</td>";
                         echo "<td>".$fila['autores']."</td>";
                         echo "<td>".$fila['ao_publicacion']."</td>";

@@ -22,13 +22,13 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
+    <link href="../../estilo/css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -62,10 +62,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index.php" >Volver</a>
+                        <a href="../panel.php" >Volver</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="../logueo/logout.php">cerrar sesion</a>
+                        <a href="../../logueo/logout.php">cerrar sesion</a>
                     </li>
                 </ul>
             </div>
@@ -81,47 +81,29 @@
                 <div class="col-lg-12">
               <!--  <img class="img-responsive" src="img/profile.png" alt=""> -->
                     <div class="intro-text">
-                        <a href="users/users.php">
-                            <span class="name" id="blanco">Admin usuarios</span>
+                        <a href="drop_video/view_video.php">
+                            <span class="name" id="blanco">Eliminar un video</span>
                         </a>
                         <hr class="star-light">
                         <span class="skills">
                         </span>
                     </div>
-                    
                     <div class="intro-text">
-                        <a href="canciones/canciones.php">
-                            <span class="name" id="blanco">Admin canciones</span>
+                        <a href="edit_video/view_video.php">
+                            <span class="name" id="blanco">Modificar un video</span>
                         </a>
                         <hr class="star-light">
-                        <span class="skills">
+                        <span class="skills">                          
+                        
                         </span>
                     </div>
-                    
                     <div class="intro-text">
-                        <a href="videos/videos.php">
-                            <span class="name" id="blanco">Admin videos</span>
+                        <a href="add_video/view_add.php">
+                            <span class="name" id="blanco">Crear un video</span>
                         </a>
                         <hr class="star-light">
-                        <span class="skills">
-                        </span>
-                    </div>
-
-                    <div class="intro-text">
-                        <a href="ver_peticiones/peticiones.php">
-                            <span class="name" id="blanco">Peticiones</span>
-                        </a>
-                        <hr class="star-light">
-                        <span class="skills">
-                        </span>
-                    </div>
-                    
-                    <div class="intro-text">
-                        <a href="ver_coment/coments.php">
-                            <span class="name" id="blanco">Comentarios</span>
-                        </a>
-                        <hr class="star-light">
-                        <span class="skills">
+                        <span class="skills">                           
+                            
                         </span>
                     </div>
                 </div>
