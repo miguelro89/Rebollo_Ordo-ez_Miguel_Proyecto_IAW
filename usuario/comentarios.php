@@ -147,7 +147,7 @@
                        } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>El comentario se ha insertado correctamente</h3>";
+                       echo "<h3 id='homeHeading'>El comentario se ha enviado correctamente</h3>";
                        echo "<br/><br/>";
                        echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
                        echo "<br/><br/>";
