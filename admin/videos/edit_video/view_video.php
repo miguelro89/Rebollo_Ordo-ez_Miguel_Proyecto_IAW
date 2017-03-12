@@ -121,7 +121,7 @@
                         echo "<td>".$obj->enlace_video."</td>";
                         echo "<td><form id='form0' method='get'>
                           <a href='edi_video.php?id=$obj->id_video'>
-                            <img src='../../../imgs/delete.jpeg' width='30%';/>
+                            <img src='../../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";
                     echo "</tr>";

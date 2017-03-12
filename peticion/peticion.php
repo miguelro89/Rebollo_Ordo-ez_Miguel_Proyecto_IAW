@@ -133,7 +133,7 @@
                 $nomb=$_POST['nombre'];
                 $autor=$_POST['autor'];
             
-                $consulta= "INSERT INTO peticiones VALUES('$nomb','$autor')";
+                $consulta= "INSERT INTO peticiones VALUES(null,'$nomb','$autor')";
                     $result = $connection->query($consulta);
                         
                     if (!$result) {

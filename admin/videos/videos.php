@@ -110,3 +110,21 @@
             </div>
         </div>
     </header>
+    
+    <!-- jQuery -->
+    <script src="../../../estilo/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/estilo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../../../estilo/js/creative.min.js"></script>
+
+</body>
+
+</html>

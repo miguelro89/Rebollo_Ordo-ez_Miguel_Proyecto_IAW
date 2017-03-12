@@ -94,6 +94,7 @@
 
                 <table border="1">
                     <tr>
+                     <th>ID peticion</th>
                      <th>Nombre cancion</th>
                      <th>Autor/es</th>
                     </tr>
@@ -110,8 +111,14 @@
                // mostramos todos los datos a traves del bucle de las peticiones 
                 while($obj = $result->fetch_object()) {
                     echo "<tr>";
+                        echo "<td>".$obj->id_peticion."</td>";
                         echo "<td>".$obj->nombre_cancion."</td>";
-                        echo "<td>".$obj->autor."</td>";   
+                        echo "<td>".$obj->autor."</td>";
+                        echo "<td><form id='form0' method='get'>
+                          <a href='drop_peticion.php?id=$obj->id_peticion'>
+                            <img src='../../imgs/papelera.png' width='30%';/>
+                          </a>
+                        </form></td>";
                     echo "</tr>";
           }
           

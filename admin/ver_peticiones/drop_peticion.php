@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Borrar comentario</title>
+    <title>Borrar peticiones</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@
 <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 id="homeHeading">Borrar un comentario</h2>
+                <h2 id="homeHeading">Borrar una peticion</h2>
                 <hr>
 
 <?php
@@ -68,16 +68,16 @@
     echo "<br></br>";
       
     //Creamos la consulta que nos permite borrar un usuario
-    $borrar = $connection->query("DELETE FROM comentarios
-      WHERE id_comentario=$id");
+    $borrar = $connection->query("DELETE FROM peticiones
+      WHERE id_peticion=$id");
 
 
         //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
-          echo "No se ha eliminado ningun comentario";
+          echo "No se ha eliminado ninguna peticion";
         } else {
 
-          echo "El comentario se ha eliminado";
+          echo "La peticion ha sido eliminada";
         }
 
   } else {
@@ -90,7 +90,7 @@
         </div>
     </header> 
     <br></br> 
-    <a href="coments.php">Volver</a>
+    <a href="peticiones.php">Volver</a>
     <br></br>
        
         <!-- jQuery -->

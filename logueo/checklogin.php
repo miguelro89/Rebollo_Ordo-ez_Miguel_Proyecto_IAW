@@ -15,7 +15,7 @@
             $consulta = "SELECT * FROM usuarios WHERE nombre ='$username' AND password='$password'";
             $result = $connection->query($consulta);
             $obj=$result->fetch_object();
-            //si hacemos el obj de la consulta con los datos correctos, me redirige a admin o user dependiendo del rol que posee, si no al estar vacio me redirige al index
+            //si hacemos el obj de la consulta con los datos correctos, me redirige a admin o user dependiendo del rol que posee, si no al estar vacio me redirige al index ya que no se encuentra en la BD
             if ($obj!=NULL) {
                 $_SESSION["username"]=$obj->nombre;
                 $_SESSION["rol"] = $obj->rol;
