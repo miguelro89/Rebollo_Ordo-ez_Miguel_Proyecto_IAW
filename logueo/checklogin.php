@@ -22,9 +22,9 @@
                 $_SESSION["password"] = $obj->password;
                 //si el rol es distinto de admin mandame al index del usuario, en caso contrario al index del admin
                 if ($obj->rol!="admin") {
-                    header('Location: ../usuario/');
+                    header('Location: ../usuario/index.html');
                  } else {
-                     header('Location: ../admin/');
+                     header('Location: ../admin/index.php');
                 }
              //si no encuentra esos datos en la base de datos me da fallos y no loguea
              } else {

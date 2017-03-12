@@ -74,10 +74,15 @@
 
         //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
           echo "<h3 id='homeHeading'>No se ha eliminado ningun comentario</h3>";
+          echo "<br/><br/><br/>";
         } else {
-
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
           echo "<h3 id='homeHeading'>El comentario se ha eliminado</h3>";
+          echo "<br/><br/><br/>";
         }
 
   } else {
