@@ -97,6 +97,7 @@
                      <th>ID peticion</th>
                      <th>Nombre cancion</th>
                      <th>Autor/es</th>
+                     <th>Editar</th>
                     </tr>
 
                 <?php

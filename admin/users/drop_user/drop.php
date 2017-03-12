@@ -74,11 +74,16 @@
 
         //Si la consulta no se ha hecho, me dara mensaje de error
         if ($borrar==false) {
-          echo "No se ha eliminado ningun usuario";
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>No se ha eliminado ningun usuario</h3>";
+          echo "<br/><br/><br/>";
         // en caso contrario, nos dira que se ha eliminado
         } else {
-
-          echo "El usuario se ha eliminado correctamente";
+          
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>El usuario se ha eliminado correctamente</h3>";
+          echo "<br/><br/><br/>";
         }
   //en caso que no exista ese id, habrá fallo en la conexion
   } else {

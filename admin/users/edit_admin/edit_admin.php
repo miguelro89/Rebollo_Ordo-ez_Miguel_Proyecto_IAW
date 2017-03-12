@@ -9,22 +9,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar usuario</title>
+    <title>Editar cuenta</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../../../estilo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="../estilo/css/creative.min.css" rel="stylesheet">
+    <link href="../../../estilo/css/creative.min.css" rel="stylesheet">
     
     <style>
       span {
@@ -52,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="index.html">Volver</a>
+                        <a class="page-scroll" href="../users.php">Volver</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="../logueo/logout.php">Cerrar sesion</a>
+                        <a class="page-scroll" href="../../../logueo/logout.php">Cerrar sesion</a>
                     </li>
                     
                     <li>
@@ -77,7 +77,7 @@
 
                     session_start();
 
-                    if ($_SESSION["rol"] != "usuario") {
+                    if ($_SESSION["rol"] != "admin") {
                         header('Location: ../index.html');
                     } else {
                         $connection = new mysqli("localhost", "root", "", "proyectophp"); 
@@ -92,7 +92,7 @@
                             }else{
                                 $ver_datos = $result->fetch_object();
                             }
-                         //Comprobamos la conexion
+                         //TESTING IF THE CONNECTION WAS RIGHT
                         if ($connection->connect_errno) {
                             printf("Connection failed: %s\n", $connection->connect_error);
                             exit();
@@ -122,34 +122,35 @@
                     $usuario=$_SESSION['username'];
                     $contra=$_SESSION['password'];
 
-                //Hacemos el update pasando las variables donde el nombre y usuario correspondan con las del usuario que está en la sesion
-                    $consulta="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$correo', password=md5('$nuev_contra') where nombre='$usuario' password='$contra'";
+
+                        $consulta="UPDATE usuarios SET nombre='$nombre',  apellidos='$ape', correo_electronico='$correo', password=md5('$nuev_contra') where nombre='$usuario' and password='$contra'";
                 
 
-                    //metemos el resultado de ese update en una nueva variable
-                    $mod_usu = $connection->query($consulta);
+
+                        $mod_usu = $connection->query($consulta);
         
-                    //si el update no se ha podido hacer, nos mostrara un mensaje de error
-                    if (!$mod_usu) {
+                
+                        if (!$mod_usu) {
 
-                        echo "<br/><br/><br/><br/><br/><br/>";
-                        echo "<h2 id='homeHeading'>Error en la modificación de los datos</h2>";
-                        echo "<br/><br/><br/>";
-                   //en caso contrario nos dará un mensaje de que todo se ha echo correctamente
-                   } else {
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h3 id='homeHeading'>Error en la modificación de los datos</h3>";
+                            echo "<br/><br/><br/>";
 
-                        echo "<br/><br/><br/><br/><br/><br/>";
-                        echo "<h3 id='homeHeading'>Los datos han sido modificados correctamente</h3>";
-                        echo "<br/><br/>";
+
+                       } else {
+
+                            echo "<br/><br/><br/><br/><br/><br/>";
+                            echo "<h3 id='homeHeading'>Los datos han sido modificados correctamente</h3>";
+                            echo "<br/><br/>";
          
-                   }
+                       }
     
 
             ?>
               <?php endif ?>   
                
 <br></br>
-    <a href="index.html">Volver</a>
+    <a href="../users.php">Volver</a>
 <br></br>      
                 
             </div>
@@ -158,10 +159,10 @@
    
 
     <!-- jQuery -->
-    <script src="../estilo/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../estilo/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -169,7 +170,7 @@
     <script src="/estilo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../estilo/js/creative.min.js"></script>
+    <script src="../../../estilo/js/creative.min.js"></script>
 
 </body>
 

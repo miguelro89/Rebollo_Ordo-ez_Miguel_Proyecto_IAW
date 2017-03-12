@@ -115,7 +115,7 @@
                     //Si el rol "NO" es usuario redirigir a index.php
                 
 
-            //para que el usuario pueda pedir una cancion
+            //para que el usuario pueda pedir un comentario le pasamos el nombre 
 
             if (!isset($_POST["nombre"])) : ?>                   
 
@@ -131,27 +131,29 @@
 
                 <?php else: ?>
                 <?php 
+                //cargamos en nuevas variables los campos del formulario
                 $nomb=$_POST['nombre'];
                 $coment=$_POST['comentario'];
             
+                //hacemos la insercion con las variables anterios y null porque es un campo autocompletado
                 $consulta= "INSERT INTO comentarios VALUES('null','$nomb','$coment')";
                     $result = $connection->query($consulta);
-                        
+                    //si la insercion no se lleva a cabo nos mostrara un error    
                     if (!$result) {
 
-                            echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
-                            echo "<br/><br/><br/>";
+                        echo "<br/><br/><br/><br/><br/><br/>";
+                        echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                        echo "<br/><br/><br/>";
 
+                    //en caso contrario nos insertará el comentario
+                    } else {
 
-                       } else {
-
-                       echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>El comentario se ha enviado correctamente</h3>";
-                       echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
-                       echo "<br/><br/>";
-                       }
+                        echo "<br/><br/><br/><br/><br/><br/>";
+                        echo "<h3 id='homeHeading'>El comentario se ha enviado correctamente</h3>";
+                        echo "<br/><br/>";
+                        echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
+                        echo "<br/><br/>";
+                    }
     
                     ?>
                 <?php endif ?>

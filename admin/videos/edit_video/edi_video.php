@@ -76,10 +76,15 @@
 
         //para saber si la consulta es buena o mala
         if ($borrar==true) {
-            echo "<br></br>";
-            echo "El video se ha modificado correctamente";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>El video se ha modificado correctamente</h3>";
+            echo "<br/><br/><br/><br/>";
         } else {
-            echo "No se ha modificado ningun video";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>No se ha modificado ningun video</h3>";
+            echo "<br/><br/><br/><br/>";
         }
  ?>
  

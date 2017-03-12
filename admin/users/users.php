@@ -106,6 +106,15 @@
                             
                         </span>
                     </div>
+                    <div class="intro-text">
+                        <a href="edit_admin/edit_admin.php">
+                            <span class="name" id="blanco">Modificar cuenta administrador</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">                           
+                            
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

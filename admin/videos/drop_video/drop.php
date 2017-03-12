@@ -74,10 +74,16 @@
 
         //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
-          echo "No se ha eliminado ningun video";
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>No se ha eliminado ningun video</h3>";
+          echo "<br/><br/><br/><br/>";    
+            
         } else {
-
-          echo "El video se ha eliminado correctamente";
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>El video se ha eliminado correctamente</h3>";
+          echo "<br/><br/><br/><br/>";
         }
 
   } else {

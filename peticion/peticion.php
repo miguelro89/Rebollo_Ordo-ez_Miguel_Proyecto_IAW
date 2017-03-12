@@ -116,7 +116,7 @@
                     //Si el rol "NO" es usuario redirigir a index.php
                 
 
-            //para que el usuario pueda pedir una cancion
+            //para que el usuario pueda pedir una cancion, le pasamos uno de los campos del formulario
 
             if (!isset($_POST["nombre"])) : ?>                   
 
@@ -130,27 +130,29 @@
 
                 <?php else: ?>
                 <?php 
+                //guardamos los campos del fomulario en variables nuevas
                 $nomb=$_POST['nombre'];
                 $autor=$_POST['autor'];
             
+                //hacemos el insert con las variables nuevas y null porque es un campo autocompletado
                 $consulta= "INSERT INTO peticiones VALUES(null,'$nomb','$autor')";
                     $result = $connection->query($consulta);
-                        
+                    //si no se realiza bien la insercion nos dará un mensaje de error    
                     if (!$result) {
 
-                            echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
-                            echo "<br/><br/><br/>";
+                        echo "<br/><br/><br/><br/><br/><br/>";
+                        echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                        echo "<br/><br/><br/>";
 
+                       //en caso contrario te dira que si se han insertado
+                    } else {
 
-                       } else {
-
-                       echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>La peticion ha sido un exito</h3>";
-                       echo "<br/><br/>";
-                       echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
-                       echo "<br/><br/>";
-                       }
+                        echo "<br/><br/><br/><br/><br/><br/>";
+                        echo "<h3 id='homeHeading'>La peticion ha sido un exito</h3>";
+                        echo "<br/><br/>";
+                        echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
+                        echo "<br/><br/>";
+                    }
     
                     ?>
                 <?php endif ?>

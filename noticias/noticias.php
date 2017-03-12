@@ -113,7 +113,7 @@
                     
             <br></br>        
             <div class="container"><font color="green">Más información en: &nbsp</font>
-                    <a href="http://www.dreambeach.es/2017/">Página oficial</a>                   
+                    <a href="http://www.dreambeach.es/2017/" target='_blank'>Página oficial</a>                   
             </div>
 
             <br></br>
@@ -123,7 +123,7 @@
     
             <br></br>       
             <div class="container"><font color="green">Más información en: &nbsp</font>
-                    <a href="https://www.ticketea.com/entradas-festival-winter-2017/">Info + entradas</a>                   
+                    <a href="https://www.ticketea.com/entradas-festival-winter-2017/" target='_blank'>Info + entradas</a>                   
             </div>
             <br></br>
     
@@ -133,7 +133,7 @@
 
             <br></br>       
             <div class="container"><font color="green">Más información en: &nbsp</font>
-                    <a href="http://www.beatmashmagazine.com/">Beatmash magazine</a>                   
+                    <a href="http://www.beatmashmagazine.com/" target='_blank'>Beatmash magazine</a>                   
             </div>
             <br></br>
             </div>

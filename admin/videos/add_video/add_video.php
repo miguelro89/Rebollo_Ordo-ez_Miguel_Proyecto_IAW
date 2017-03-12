@@ -122,7 +122,7 @@
                     //si la consulta no se ha realizado, no muestra un error   
                     if (!$result) {
                             echo "<br/><br/><br/><br/><br/><br/>";
-                            echo "<h2 id='homeHeading'>No se ha podido insertar el video</h2>";
+                            echo "<h3 id='homeHeading'>No se ha podido insertar el video</h3>";
                             echo "<br/><br/><br/>";
 
                     //en caso contrario

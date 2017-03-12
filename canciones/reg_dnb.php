@@ -105,12 +105,13 @@
 
 
                         <?php
-
+                          //Hacemos la conexion, hacemos la consulta de las canciones filtradas por genero
                           $conexion=mysqli_connect('localhost','root','','proyectophp');
                           $consulta="SELECT * FROM canciones WHERE id_genero= 'dnb'";
+                          //y los valores de la conexion y consulta los guardamos en otra variable
                           $result = mysqli_query($conexion, $consulta);
 
-
+                          //con el bucle vamos a mostrar cada campo de cada cancion hasta que se muestren todas las que tiene la BD por el campo filtrado
                           while ($fila=mysqli_fetch_array($result)) {
                               $link=$fila['enlace_youtube'];
                             echo "<tr>";
@@ -122,7 +123,7 @@
                             echo "</tr>";
                           }
 
-
+                        //cerramos conexiones
                         $result->close();
                         unset($fila);
                         unset($conexion);

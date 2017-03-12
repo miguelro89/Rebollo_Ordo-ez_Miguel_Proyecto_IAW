@@ -74,10 +74,15 @@
 
         //Si la consulta de borrar no se ha realizado, me dara error, en caso contrario me muestra que se ha echo
         if ($borrar==false) {
-          echo "No se ha eliminado ninguna peticion";
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>No se ha eliminado ninguna peticion</h3>";
+          echo "<br/><br/><br/>";
         } else {
-
-          echo "La peticion ha sido eliminada";
+            
+          echo "<br/><br/><br/><br/><br/><br/>";
+          echo "<h3 id='homeHeading'>La peticion ha sido eliminada</h3>";
+          echo "<br/><br/><br/>";
         }
 
   } else {

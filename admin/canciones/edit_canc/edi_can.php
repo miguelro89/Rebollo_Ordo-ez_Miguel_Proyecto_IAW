@@ -76,10 +76,16 @@
 
         //para saber si la consulta es buena o mala
         if ($borrar==true) {
-            echo "<br></br>";
-            echo "La cancion se ha modificado correctamente";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>La cancion se ha modificado correctamente</h3>";
+            echo "<br/><br/><br/>";
+            
         } else {
-            echo "No se ha modificado ninguna cancion";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>No se ha modificado ninguna cancion</h3>";
+            echo "<br/><br/><br/>";
         }
  ?>
  

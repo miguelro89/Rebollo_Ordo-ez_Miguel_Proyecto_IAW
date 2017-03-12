@@ -26,10 +26,10 @@
                  } else {
                      header('Location: ../admin/');
                 }
-
+             //si no encuentra esos datos en la base de datos me da fallos y no loguea
              } else {
                 header('Location: index.html?msg=error');
              }
-
+            //cerramos la conexion
              mysqli_close($connection);
 ?>

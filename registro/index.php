@@ -33,6 +33,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 
 </head>
 
@@ -89,7 +90,7 @@
       <form method="post">
             <span>Nombre: </span><input type="text" name="nombre"><br/><br/>
             <span>Apellidos: </span><input type="text" name="apellido"><br/><br/>
-            <span>Correo_electronico: </span><input type="email" name="email"><br/><br/>
+            <span>Correo electronico: </span><input type="email" name="email"><br/><br/>
             <span>Contraseña: </span><input type="password" name="pass"><br/><br/>
             <input class="btn btn-primary btn-xl page-scroll" name="Submit" value="Enviar" type="submit" >
       </form>

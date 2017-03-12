@@ -68,10 +68,16 @@
         $modificar = $connection->query($consulta);
         //para saber si la consulta es buena o mala
         if ($modificar==false) {
-            echo "No se ha modificado al usuario elegido";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>No se ha modificado al usuario elegido</h3>";
+            echo "<br/><br/><br/>";
+            
         } else {
-            echo "<br></br>";
-            echo "Cambios en los datos del usuario realizados correctamente";
+            
+            echo "<br/><br/><br/><br/><br/><br/>";
+            echo "<h3 id='homeHeading'>Cambios en los datos del usuario realizados correctamente</h3>";
+            echo "<br/><br/><br/>";
         }
     ?>
  <?php endif ?>
