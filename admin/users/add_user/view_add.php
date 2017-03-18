@@ -113,7 +113,7 @@
                 $email=$_POST['email'];
                 $pass=$_POST['pass'];
                 
-                $consulta= "INSERT INTO usuarios            VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
+                $consulta= "INSERT INTO usuarios VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
                     $result = $connection->query($consulta);
                     //si no es correcta la insercion de los datos nos muestra un mensaje de error  
                     if (!$result) {
