@@ -77,144 +77,34 @@
         </div>
     </header>
     <br></br>
+    <?php
     
-     <section id="contact">
-        <div class="container">
-			<ul class="nav">
-			    <li><a href="eleccioncss.php">Elige el diseño de la pagina</a></li>
-				<li><a href="../peticion/peticion.php">Peticion de canciones</a></li>
-				<li><a href="../noticias/noticias.php">Noticias</a></li>
-				<li><a href="comentarios.php">Comentarios</a></li>
-			</ul>
-		</div>
-		<br></br>
+    session_start();
 
-    <!-- Portfolio Grid Section -->
-    <section id="canciones">
-        <div class="container" align="center">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Canciones</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="../canciones/reg_trap.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://online-shirt-designer.ch/img/Designs/Designklein-16107210.png" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                      <a href="../canciones/reg_techno.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://geo-media.beatport.com/image_size/250x250/15191011.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                      <a href="../canciones/reg_edm.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://www.beatframe.com/images/playlists/edm.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-            </div>
-        </div>    
-            <div class="container" align="center">                
-                <div class="col-sm-4 portfolio-item" align="center">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                      <a href="../canciones/reg_dnb.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://online-shirt-designer.ch/img/Designs/Designklein-12458661.png" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>                
-            </div>
-    </section>
-
-     <section id="directos">
-        <div class="container" align="center">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Directos</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="../directos/trap.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://img04.rl0.ru/f802f1193c242e9ee5049f61473edd12/c250x250/www.radiobells.com/stations/recordtrap.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="../directos/techno.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://www.mixjunkies.com/wp-content/uploads/2011/06/i-love-techno-250x250.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="../directos/edm.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="http://geo-media.beatport.com/image_size/250x250/13149068.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                      <a href="../directos/dnb.php">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://s3-eu-west-1.amazonaws.com/s3.dragonmedia.uk/media/radio/58027973366b1c43bfd890bc/f5eae2c9-6efb-4bb1-afbe-6543eb61f0bf-lg.jpg" width="250px" height="250px" class="img-responsive" alt="">
-                      </a>
-                    </a>
-                </div>
-            </div>
-         </div>
-    </section>
-
-     <!-- About Section -->
+        if ($_SESSION["rol"] != "admin") {
+            header('Location: ../index.html');
+        } else {
+            $connection = new mysqli("localhost", "root", "", "proyectophp"); 
+            //Metemos en una variable, el nombre a través del $_session
+            $id_usu=$_SESSION['username'];
+            //hacemos la consulta comparando los nombres de la BD con nuestro usuario logueado
+            
+            echo='option';
+            $consulta="Select tema from usuarios where id=$id"
+    
+   <select name="eleccion">
+      <h2>Elige tu estilo favorito</h2>
+       
+       
+       <option size="12">Estilo 1</option>
+       
+       <option size="12">Estilo 2</option>
+       
+       <option size="12">Estilo 3</option>
+   
+   </select>
+   
+    <!-- About Section -->
     <section class="success" id="about">
         <div class="container">
             <div class="row">

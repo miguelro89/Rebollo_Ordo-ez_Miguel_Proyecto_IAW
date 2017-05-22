@@ -113,20 +113,21 @@
                 $email=$_POST['email'];
                 $pass=$_POST['pass'];
                 
-                $consulta= "INSERT INTO usuarios VALUES(NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
+                $consulta= "INSERT INTO usuarios VALUES (NULL,'$nombre','$ape','$email',md5('$pass'),'usuario')";
+                
                     $result = $connection->query($consulta);
                     //si no es correcta la insercion de los datos nos muestra un mensaje de error  
-                    if (!$result) {
+                    if ($result) {
 
                         echo "<br/><br/><br/><br/><br/><br/>";
-                        echo "<h2 id='homeHeading'>Error en la inserción de los datos</h2>";
+                        echo "<h2 id='homeHeading'>Datos añadidos correctamente</h2>";
                         echo "<br/><br/><br/>";
 
                     //que si ha sido correcta la insercion, no muestra otro mensaje
                     } else {
 
                        echo "<br/><br/><br/><br/><br/><br/>";
-                       echo "<h3 id='homeHeading'>Los datos han sido añadidos correctamente</h3>";
+                       echo "<h3 id='homeHeading'>Los datos NO han sido añadidos correctamente</h3>";
                        echo "<br/><br/>";
                        echo "<h3 id='homeHeading'><a href='../../panel.php'>volver</a></h3>";
                        echo "<br/><br/>";
